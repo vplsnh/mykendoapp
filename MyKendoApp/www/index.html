@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; img-src 'self' data: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.silver.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="kendo/styles/kendo.silver.min.css" />
+
+    <link href="styles/overrides.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/login.css" rel="stylesheet">
+    <link href="styles/appform.css" rel="stylesheet">
+    <link href="styles/loginform.css" rel="stylesheet">
+    <link href="styles/home.css" rel="stylesheet">
+    <link href="styles/homesuvidha.css" rel="stylesheet">
+    <link href="styles/meeting.css" rel="stylesheet">
+
+
+
+    <script src="cordova.js"></script>
+    <script src="kendo/js/jquery.min.js"></script>
+
+    <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <!--<script src="libs/analytics.js"></script>-->
+    <script src="libs/common.js"></script>
+    <script src="libs/jquery.base64.js"></script>
+    <script src="libs/MD5.js"></script>
+    <script src="app.js"></script>
+   <!--<script src="libs/appInfo.js"></script>-->
+    <script src="libs/loader.js"></script>
+    <script src="libs/loaderMessages.js"></script>
+    <script src="libs/service.js"></script>
+    <script src="libs/sync.js"></script>
+    <script src="libs/languageStrings.js"></script>
+    
+
+
+
+</head>
+
+<body id="kendoUiMobileApp">
+
+    <div data-role="layout" data-id="main">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <footer data-role="footer">
+            <!-- <div data-role="tabstrip" id="navigation-container">
+             </div>
+             <div id="navigation-container-more" style="display: none">
+             </div>-->
+        </footer>
+    </div>
+
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+    <div data-role="drawer" id="app-drawer" data-swipe-to-open="false">
+        <h5 class="menu-heading Username"></h5>
+        <h1 class="menu-heading">Menu</h1>
+        <ul data-role="listview">
+            <li><a onclick="GoToPage('views/Home.html');">Home</a></li>
+            <li><a onclick="GoToPage('views/SaveRecord.html');">Save New Record</a></li>
+            <li><a onclick="GoToPage('views/SavedRecords.html');">Saved Records</a></li>
+             <!--<li><span style="clear:both;color:transparent">CCE </span></li>-->
+            <li><a onclick="GoToPage('views/ChangePassword.html');">Change Password</a></li>
+            <li><a onclick="GoToPage('views/common/settings.html');">Settings</a></li>
+            <li>
+                <a onclick="GoToPage('views/Login.html');">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+        <span id="appVersion" class="app-version">App Version: 1.0</span>
+    </div>
+    <div id="loader-bg"></div>
+    <div id="loader">
+        <img src="Images/loading-spin.svg" class="loader-img" />
+        <h2>Loading...</h2>
+    </div>
+    <script src="Configurations/dbsettings.js"></script>
+    <script src="Configurations/deleteDB.js"></script>
+    <script src="libs/masterData.js"></script>
+    <script src="libs/service.js"></script>
+    <script src="models/Login.js"></script>
+    <script src="models/settings.js"></script>
+    
+    <script src="libs/errorLog.js"></script>
+    <!--<script src="libs/appInfo.js"></script>-->
+    <script src="libs/location.js"></script>
+    <script src="models/home.js"></script>
+    <script src="models/changePassword.js"></script>
+
+    <script src="models/PasswordRecovery.js"></script>
+    <script src="models/SaveRecord.js"></script>
+    <script src="models/SavedRecords.js"></script>
+    <script src="models/InvoicePhotos.js"></script>
+    
+
+
+    <!-- END_CUSTOM_CODE_kendoUiMobileApp -->
+</body>
+
+</html>
