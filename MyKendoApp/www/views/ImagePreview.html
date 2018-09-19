@@ -1,0 +1,11 @@
+﻿<div data-role="view" id="Image" data-zoom="true" data-model="app.models.InvoicePhotos.InvoicePhotosPreview" data-title="Preview" data-show="app.models.InvoicePhotos.InvoicePhotosPreview.onShow">
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-align="left">back</a>
+            <span data-role="view-title"></span>
+        </div>
+    </div>
+    <div style="padding-top:5px;">
+        <img id="resizeImage" data-bind="attr:{src: viewModel.resizeImage.FileBase64}" class="imagePreview">
+    </div>
+</div>

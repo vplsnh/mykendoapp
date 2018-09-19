@@ -1,0 +1,19 @@
+﻿<div id="Login" data-role="view" data-reload="true" data-use-native-scrolling="true" data-title="Login" data-layout="main-nonav" data-model="app.models.Login.LoginView" data-show="app.models.Login.onShow">
+    <div data-role="header">
+    </div>
+    <h1 class="logo"><img src="Images/logo.png" data-bind="{events:{click: deletedb}}"></h1>
+    <span align="center" style="color:red;" data-bind="text: viewModel.user.error"></span>
+    <div class="container">
+        <form id="frmLogin">
+            <ul data-role="listview">
+                <li>
+                    <input type="text" id="userName" placeholder="Username" pattern="\S(.*\S)?" data-bind="value: viewModel.user.userName">
+                </li>
+                <li><input type="password" id="password" placeholder="Password" data-bind="value: viewModel.user.password"></li>
+            </ul>
+            <button id="loginbutton" data-role="button" onclick="app.models.Login.LoginView.login();">Login</button>
+
+        </form>
+        
+    </div>
+</div>

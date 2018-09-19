@@ -1,0 +1,41 @@
+﻿<div id="photos" data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Record Photos" data-show="app.models.InvoicePhotos.InvoicePhotosView.onShow" data-model="app.models.InvoicePhotos.InvoicePhotosView">
+    <div data-role="header">
+        <div data-role="navbar" id="navbar-title" class="cross">
+            <a data-role="backbutton" data-align="left" data-bind="{events:{click:backbtn}}">back</a>
+            <span data-role="view-title"></span>
+            <!--           <span data-role="button" data-icon="crossicon" onclick="closeModelView('myModalView');" class="font-icon icon-display" data-align="right"></span>  -->
+        </div>
+    </div>
+    
+        
+           
+                <ul data-role="listview" style="padding:2%;color:blue;">
+                    <li id="InvView" style="text-align:left;background-color:#4d7bbc;color:white;">Invoice Photos</li>
+                    <li>
+                        <div data-role="scroller" class="scroller-content">
+                            <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="SWClist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.dataSource1}"></ul>
+                        </div>
+                    </li>
+                    <li id="OrnView" style="text-align:left;background-color:#4d7bbc;color:white;">Ornament Photos</li>
+                    <li>
+                        <div data-role="scroller" class="scroller-content">
+                            <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="SWClist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.dataSource2}"></ul>
+                        </div>
+                    </li>
+
+                </ul>
+
+            
+        
+    
+
+    <script type="text/x-kendo-template" id="formslistTemplate">
+
+        <div class="content">
+            
+            <img src='#:data.FileBase64#' data-bind="events:{click:onPreviewImage}" class="imgview" />
+            <!--<small class="detail">#:data.FileName#</small>-->
+        </div>
+    </script>
+    
+</div>

@@ -1,0 +1,92 @@
+﻿<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Add Record" data-model="app.models.SaveRecord.SaveRecordView" data-show="app.models.SaveRecord.SaveRecordView.onShow">
+    <div data-role="header">
+        <div id="navbar" data-role="navbar">
+            <a data-role="backbutton" data-align="left" data-bind="{events:{click: back}}">
+                <span data-bind="text: viewModel.lang.back"></span>
+            </a>
+            <!--<a data-role="button" data-align="right" data-bind="events:{ click: save }">Save</a>-->
+            <span data-bind="text: viewModel.lang.saveRec.recdetails"></span>
+        </div>
+    </div>
+    <div id='container'>
+        <div class='homeSuvidha' id="vdDiv">
+            <form id="recordDetails">
+                <table class="table" id="vd">
+                    <!--<tr style="display: none">-->
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left"><span data-bind="text:viewModel.lang.saveRec.name"></span></label>
+                            <input type="text" id="Name" name="Name" data-bind="value: viewModel.saverec.Name, attr:{placeholder: viewModel.lang.saveRec.name}" />
+                        </td>
+                    </tr>
+                    <!--<tr style="display: none">-->
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left"><span data-bind="text:viewModel.lang.saveRec.addr"></span></label>
+                            <input type="text" id="address" name="address" data-bind="value:viewModel.saverec.address,attr:{placeholder:viewModel.lang.saveRec.addr}"/>
+
+                        </td>
+                    </tr>
+                    <!--<tr style="display: none">-->
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.mno"></span>: </label>
+                            <input type="number" onKeyPress="if (this.value.length == 10) return false;"id="MobileNo" name="Mobile No." data-bind="value:viewModel.saverec.mobileno,attr:{placeholder:viewModel.lang.saveRec.mno}"required />
+
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                             <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.invno"></span></label>
+                             <input type="text" id="invNo" name="Invoice Number" data-bind="value:viewModel.saverec.invno,attr:{placeholder:viewModel.lang.saveRec.invno}" required/>
+
+                        </td>
+                    </tr>
+                   
+                </table>
+            </form>
+            <div id="photos">
+            <div class='appform'>
+                <form id="CCEPhotos">
+                   
+                         <ul data-role="listview" style="padding:2%;color:blue;">
+                        <li id="SWView" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('invoice');"; style="text-align:left;background-color:#4d7bbc;color:white;">Invoice Photo</li>
+                       <li>
+                             <div data-role="scroller" class="scroller-content">
+                                <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="SWClist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.invpic}"></ul>
+                            </div>
+
+                        </li>
+                             <li id="ThreshingOperation" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('ornament');" style="text-align:left;background-color:#4d7bbc;color:white;">Ornament Photo</li>
+                             <li>
+                                 <div data-role="scroller" class="scroller-content">
+                                     <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="threshingoperationlist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.ornpic}"></ul>
+                                 </div>
+                             </li>
+                        </ul>
+                    
+
+                </form>
+
+            </div>
+                </div>
+
+        </div>
+    </div>
+    <script type="text/x-kendo-template" id="formslistTemplate">
+        <div class="content">
+            <span class="km-icon km-delete" style="float:right;position: relative;" data-bind="events:{click:deletefromForm}" name="delmemberbtn"></span>
+            <img src='#:data.FileBase64#' data-bind="events:{click:viewModel.onPreviewImage}" class="imgview" />
+            <!--<small class="detail">#:data.FileName#</small>-->
+        </div>
+    </script>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <span id="addREC" data-role="button" data-align="center" style="width:100% !important; " onclick="app.models.SaveRecord.SaveRecordView.addrecord();"><span data-bind="text: viewModel.lang.saveRec.addf"></span></span>
+        </div>
+    </div>
+
+
+</div>
+

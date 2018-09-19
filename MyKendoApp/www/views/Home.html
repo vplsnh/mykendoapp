@@ -1,0 +1,19 @@
+﻿<div id="homePage" data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Home" data-layout="main" data-model="app.models.home">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a style="padding:0.6em" href="#app-drawer" data-rel="drawer" data-role="button" data-align="left" data-icon="arrow-e"></a>
+            <span data-role="view-title"></span>
+        </div>
+    </header>
+    <div id="frmLogin">
+        <ul data-role="listview">
+            <li>
+                <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/SaveRecord.html')">Save New Record</button>
+            </li>
+            <li>
+                <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/SavedRecords.html')">Saved Records</button>
+            </li>
+         </ul>
+
+    </div>
+</div>
