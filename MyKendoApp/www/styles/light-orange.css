@@ -1,0 +1,49 @@
+.km-state-active{
+    background:#ffe5cc !important;
+    color:#ffffff !important;
+}
+.km-nova .km-drawer .km-list > li {
+    border-color: #ffcc99;
+}
+#frmLogin button{
+   
+    background:#ffcc99;
+    color:#000000;
+}
+.reset-password-link{
+    color:black !important;
+}
+.km-nova .km-navbar, .km-nova .k-toolbar, .km-nova .km-tabstrip, .km-nova .km-drawer .km-content {
+    background-image: linear-gradient(rgb(255, 204, 153) 0%, rgb(255, 204,153) 100%) !important;
+     
+}
+
+.custom-recent{
+    color:#ffcc99 !important;
+}
+sup{
+    background-color: #ffcc99;
+    color: #000000;
+}
+.menu-heading
+{
+    color:#000000 !important;
+}
+.listitemcolor li span
+{
+ color: rgb(58,58,58) !important;
+}
+
+<!--Overide.css
+.km-nova .km-navbar *, .km-nova .k-toolbar *, .km-nova .km-navbar .km-leftitem .km-back:before, .km-nova .km-tabstrip *, .km-nova .km-drawer .km-list > li, .km-nova .km-drawer .km-list > li > .km-listview-link, .km-nova .km-drawer .km-list > li .km-icon {
+    color: black !important;
+}-->
+.km-nova .km-navbar *,
+.km-nova .k-toolbar *,
+.km-nova .km-navbar .km-leftitem .km-back:before,
+.km-nova .km-tabstrip *,
+.km-nova .km-drawer .km-list > li,
+.km-nova .km-drawer .km-list > li > .km-listview-link,
+.km-nova .km-drawer .km-list > li .km-icon {
+  color: black !important;
+}

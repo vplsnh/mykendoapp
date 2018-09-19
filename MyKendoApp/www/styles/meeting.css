@@ -1,0 +1,40 @@
+﻿body {
+}
+    .radio-group-clienttype input[type="radio"] {
+        opacity:0.01!important;
+        z-index:100!important;
+    }
+    .radio-group-clienttype input[type="radio"]:checked + label,.Checked + label {
+        background:#00a2e5!important;
+        color: white;
+    }
+    .radio-group-clienttype label{
+        border: solid 2px;
+        padding: 5px;
+        border-radius: 15px;
+        font-size: 20px;
+        color: #00a2e5;
+        width:37%;
+        text-align:center;
+    }
+    .radioLeftLbl {
+        float:left;
+        margin-left:4%;
+    }
+    .radioRightLbl {
+        float:right;
+        margin-right:4%;
+    }
+    .meetingLabels {
+        float:left;
+        margin-left:4%;
+    }
+    .meetingInputs {
+        width:92%;
+        margin-left:4%;
+        margin-right:4%;
+    }
+    .meetingDetails #commentstxtar {
+        height:60px;
+        resize:none;
+    }

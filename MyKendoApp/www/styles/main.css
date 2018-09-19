@@ -1,0 +1,928 @@
+#kendoUiMobileApp .image-with-text img {
+    float: left;
+    margin-right: 15px;
+}
+
+#kendoUiMobileApp .block {
+    display: block;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+}
+span.k-widget.k-tooltip-validation {
+    width:100%!important;
+}
+#kendoUiMobileApp .button-group,
+#kendoUiMobileApp .icon-group {
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 1em;
+}
+
+#kendoUiMobileApp .button-group {
+    table-layout: fixed;
+}
+
+    #kendoUiMobileApp .button-group .km-button {
+        display: table-cell;
+        padding: .6em .8em;
+        margin: 1em 0;
+    }
+
+    #kendoUiMobileApp .button-group.button-group-vertical .km-button {
+        display: block;
+    }
+
+#kendoUiMobileApp .group-separator {
+    border: none;
+    background: transparent;
+}
+
+#kendoUiMobileApp .group-separator-header {
+    margin: 1em 0;
+}
+
+#kendoUiMobileApp .app-icon {
+    text-align: center;
+    margin: 3em 0;
+}
+
+#kendoUiMobileApp .view-title {
+    text-align: center;
+    font-weight: normal;
+}
+
+#kendoUiMobileApp .km-drawer-button:after,
+#kendoUiMobileApp .km-drawer-button:before {
+    content: '\e077';
+}
+
+#kendoUiMobileApp form .form-content li p {
+    margin: 0;
+    padding: 0;
+}
+
+#kendoUiMobileApp .icon-group .app-icon,
+#kendoUiMobileApp .icon-group .app-details {
+    display: table-cell;
+    vertical-align: top;
+}
+
+#kendoUiMobileApp .icon-group .app-icon {
+    margin: 0;
+    width: 5em;
+    overflow: hidden;
+    text-align: left;
+}
+
+    #kendoUiMobileApp .icon-group .app-icon img {
+        display: block;
+        max-width: 5em;
+        height: auto;
+    }
+
+#kendoUiMobileApp .icon-group .app-details h2,
+#kendoUiMobileApp .icon-group .app-details h4 {
+    font-weight: normal;
+    margin: 0;
+}
+
+#kendoUiMobileApp .icon-group .app-details h4 {
+    color: #828282;
+    margin-top: 0.5em;
+}
+
+#kendoUiMobileApp #navigation-container.km-tabstrip .km-button .km-text {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+#kendoUiMobileApp .unsupported-preview {
+    text-align: center;
+    margin-top: 12rem;
+}
+
+#kendoUiMobileApp .info-icon {
+    margin: 0 auto;
+    width: 3.3rem;
+    height: 3.3rem;
+    background-image: url('data:Image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABIklEQVRoge3YMU4CURDG8R+KqImGxNoTWNgYqSgtvYBn8EY2nkE7LTwItbGUwhgLFSxgLTS4i4w+SOafTDc73/vydva9HZIkSZIlooNrPM6IK2wUW10DehjXRC9ScC2ymMkOROQ0JtrAv5MGvjAKyinGLgZmN/AAO5GCrchiU9rY9313R7jH2x9oJslvieqBU5z5+Zowwh0ugjTD6OBF/RWiioNI8YhzYBtbc+TvBWh+kiexwt/1CAPPuMR7QK3i9NU3cT9SMHugNGmgNGmgNCtvYD2ozjHOcYLDmtxNHOEJD0H6C9HGUPPbaBXD6bPF6Zp/8VV0FxVf+R6IMLDInGdpZkS35n99biKEo/6JWyazoKaj81eTGdE4SD9JkiRJVpMPXjloDVm2S04AAAAASUVORK5CYII=');
+    background-repeat: no-repeat;
+}
+
+#kendoUiMobileApp .editableListItem span {
+    float: left;
+}
+
+#kendoUiMobileApp .km-content .details-content .editableListItem {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#kendoUiMobileApp .km-content .details-content p,
+#kendoUiMobileApp.km-nova .km-content .details-content h3 {
+    padding: 1rem;
+    margin: 0;
+}
+
+#kendoUiMobileApp .km-content .details-content .editableListItem:first-of-type {
+    border-top: 0;
+}
+
+#kendoUiMobileApp .details-content .editableListItem + .editableListItem {
+    border-top: 0;
+}
+
+#kendoUiMobileApp .km-content li label:not(.km-label-above) > span:not(.km-widget),
+#kendoUiMobileApp .editableListItem > span {
+    display: inline-block;
+    word-break: break-word;
+    width: 50%;
+    padding-right: 10px;
+}
+
+#kendoUiMobileApp .km-content li p {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#kendoUiMobileApp .editableListItem {
+    overflow: hidden;
+    width: 100%;
+}
+
+#kendoUiMobileApp.km-ios7 .button-group .km-button.primary {
+    color: #fff;
+    background-color: #007aff;
+}
+
+#kendoUiMobileApp.km-android .button-group .km-button.primary {
+    color: #fff;
+    background-color: #33b5e5;
+}
+
+.km-arrow-e:after,
+.km-arrow-e:before {
+    content: "\e0f1" !important;
+   /* background-image:url(../Images/menu.png) !important;*/
+    height:auto;
+    width:auto;
+    /*margin-top:5px;*/
+}
+
+.km-state-active {
+    background: green !important;
+}
+
+.km-nova .km-drawer .km-list > li {
+    border-color: #fff;
+    font-size: 1em !important;
+}
+
+.logo {
+    width: 100%;
+    padding-top: 5% !important;
+    text-align:center;
+    font-size: 30px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+ #frmHome{
+    padding:2% 2% 2% 2%;  
+}
+
+#frmLogin{
+    padding:2% 2% 2% 2%;  
+}
+#frmLogin input[type="text"], #frmLogin input[type="password"] {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom:1%;
+    padding-left:1%;
+}
+
+#frmLogin li {
+    padding-bottom: 0 !important;
+}
+
+#frmLogin button, #frmResetPassword button, #frmHome button {
+    width: 90%;
+    margin: 11% 5%;
+    background: #0193CC;
+    color: #fff;
+    font-weight: bold;
+}
+
+.reset-password-link {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 15px;
+    display: block;
+    color: #0193CC !important;
+    text-decoration: none;
+}
+
+.h1-heading {
+    font-weight: bold;
+}
+
+.km-nova .km-navbar,
+.km-nova .k-toolbar,
+.km-nova .km-tabstrip,
+.km-nova .km-drawer .km-content {
+    background-image: linear-gradient(rgb(1, 147, 204) 0%, rgb(1, 147, 204) 100%) !important;
+}
+
+body,
+html, select, input, textarea {
+    font: normal 1em "HelveticaNeue Light", "Roboto Light", "Slate Light", "Segoe WP", NokiaPureTextLight, sans-serif !important;
+}
+
+span[data-role="button"] {
+   
+     border: none; /*!important;*/
+     }
+
+sup {
+    background-color: #0193CC;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 5px;
+    margin-left: 3px;
+    border-radius: 6px;
+}
+
+.km-drawer h5 {
+    /*text-align: end;
+   margin-right:10px !important;*/
+    float: right;
+    /*margin-top: 57px;*/
+    text-align: right;
+    padding-right: 5px;
+}
+
+.km-content h5 {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.menu-heading {
+    color: white !important;
+}
+
+.listitemcolor li span {
+    color: rgb(58, 58, 58) !important;
+}
+
+.km-icon {
+    font-size: 25px !important;
+    width: 23px !important;
+}
+
+.table-detail-view {
+    margin: 5% 10px;
+    width: 90%;
+}
+
+    .table-detail-view td:first-child {
+        font-weight: bold;
+    }
+
+.km-nova .km-drawer .km-scroll-container {
+    justify-content: initial !important;
+    -webkit-justify-content: initial !important;
+}
+
+.km-nova .km-collapsible-header {
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+    .km-nova .km-collapsible-header h2 {
+        color: #0193CC;
+    }
+
+    .km-nova .km-collapsible-header,
+    .km-nova .km-collapsible-header h1,
+    .km-nova .km-collapsible-header h2,
+    .km-nova .km-collapsible-header h3,
+    .km-nova .km-collapsible-header h4,
+    .km-nova .km-collapsible-header h5,
+    .km-nova .km-collapsible-header h6 {
+        color: #0193CC !important;
+    }
+
+.km-nova input[type=checkbox]:checked:after {
+    color: #0193CC !important;
+    
+}
+
+.customgrid li a {
+    float: right !important;
+    border: none !important;
+}
+
+.customgrid li div {
+    width: 80% !important;
+}
+
+.cross .km-add:after,
+.km-add:before {
+    transform: rotate(45deg) !important;
+}
+
+.customtabstrip a {
+    font-size: 0.9em !important;
+}
+
+.imgview {
+    display: block;
+    max-width: 150px;
+}
+
+.km-nova input[type=radio],
+.km-nova input[type=checkbox] {
+    height: 1.882rem !important;
+    width: 1.882rem !important;
+}
+
+
+.delete-icon {
+    margin-top: 35px !important;
+}
+
+.sentdate {
+    display: block;
+    font-size: .6em !important;
+    color: #666666;
+}
+
+.km-list textarea {
+    background: white !important;
+}
+
+.table {
+    width: 100%;
+}
+
+    .table th {
+        border-collapse: collapse;
+        border-top:0;
+        border-left:0;
+        border-right:0
+    }
+
+    .table th, .table td {
+        padding: 2px;
+    }
+
+
+/*appraisal list view style */
+
+.list-itgi li {
+    display: table;
+    width: 100%;
+    padding: 1em;
+}
+
+.list-itgi .icon,
+.list-itgi .content {
+    display: table-cell;
+}
+
+.list-itgi .icon {
+    width: 2em;
+    padding: .2em;
+    vertical-align: middle;
+}
+
+.list-itgi .km-icon {
+    font-size: 1.5em;
+}
+
+.list-itgi .content {
+    float: left;
+    width: 100%;
+}
+
+.list-itgi .title,
+.list-itgi .detail {
+    display: block;
+}
+
+.list-itgi .title {
+    margin-bottom: .4em;
+    font-size: 0.96em !important;
+}
+
+    .list-itgi .title small {
+        font-size: .72em !important;
+    }
+
+.list-itgi .detail {
+    display: block;
+    font-size: .8em;
+}
+
+.list-itgi .detail {
+    margin-bottom: .35em;
+}
+
+.km-nova .km-list > li {
+    padding: 0.3em !important;
+    padding-top: 0.5em !important;
+}
+
+.km-icon:after,
+.km-icon:before,
+.km-contactadd:after,
+.km-contactadd:before,
+.km-rowdelete:after,
+.km-rowdelete:before,
+.km-rowinsert:after,
+.km-rowinsert:before,
+.km-detaildisclose:after,
+.km-detaildisclose:before,
+.km-loading:after,
+.km-filter-wrap:before {
+    font: 0.7em/1em "Kendo UI";
+}
+
+.custom-recent {
+    color: #0193CC !important;
+}
+
+/* START_CUSTOM_CODE_kendoUiMobileApp */
+
+.km-flat .km-rowinsert,
+.km-flat .km-state-active,
+.km-flat .km-scroller-pull,
+.km-flat .k-slider-selection,
+.km-flat .km-touch-scrollbar,
+.km-flat .km-pages .km-current-page,
+.km-flat .k-slider .k-draghandle,
+.km-flat .k-slider .k-draghandle:hover,
+.km-flat .km-tabstrip .km-state-active,
+.km-flat .km-scroller-refresh.km-load-more,
+.km-flat .km-popup .k-state-hover,
+.km-flat .km-popup .k-state-focused,
+.km-flat .km-popup .k-state-selected,
+.km-flat .km-actionsheet > li > a:active,
+.km-flat .km-actionsheet > li > a:hover,
+.km-flat li.km-state-active .km-listview-link,
+.km-flat li.km-state-active .km-listview-label,
+.km-flat .km-listview-label input[type=radio]:checked,
+.km-flat .km-listview-label input[type=checkbox]:checked {
+    background: #4d4d4d;
+}
+
+.km-flat,
+.km-flat .km-navbar,
+.km-flat .k-toolbar,
+.km-flat .km-detail,
+.km-flat .km-content {
+    background-color: #fff;
+}
+
+.km-rightitem {
+    right: 0;
+}
+
+.km-leftitem {
+    left: 0;
+}
+
+.km-flat .km-loader {
+    background-color: rgba(0, 0, 0, .75);
+}
+
+    .km-flat .km-loader::before {
+        background: none;
+    }
+
+.km-content h1,
+.km-content h2,
+.km-content h3,
+.km-content h4,
+.km-content h5,
+.km-content h6 {
+    color: #4d4d4d;
+    font-weight: normal;
+}
+
+.km-content h1 {
+    font-size: 1.75em;
+}
+
+.km-content p {
+    color: #333;
+    line-height: 1.4;
+}
+
+.km-save:after,
+.km-save:before {
+    content: '\e0bd';
+}
+
+.km-flat .km-scroller-pull {
+    background: none;
+}
+
+    .km-flat .km-scroller-pull .km-icon {
+        color: #4c5356;
+    }
+
+.km-root .km-flat .km-scroller-refresh span:not(.km-template) {
+    background: #4c5356;
+}
+
+
+.form label:first-child {
+    font-weight: bold;
+    color: rgb(58, 58, 58) !important;
+    margin-bottom: 5px !important;
+    width: 100%;
+    display: block;
+}
+
+.form input[type=text],
+.form input[type=date],
+.form input[type=time],
+.form input[type=number],
+.form input[type=email],
+.form input[type=password],
+.form input[type=tel],
+.form select,
+.form textarea {
+    font-weight: bold;
+    color: rgb(58, 58, 58) !important;
+    border: 1px solid #ddd;
+    width: 100% !important;
+    padding: 10px 7px;
+    font-size: 1em;
+}
+
+.form input[type=checkbox] {
+    width: 22px !important;
+    display: block;
+}
+
+.form textarea {
+    font-size: 1.2em;
+}
+
+
+.km-nova span.km-switch.km-switch-on input[type=checkbox]:checked + span + span {
+    border-color: green !important;
+    background-color: green !important;
+}
+
+.km-nova span.km-switch {
+    color: green;
+}
+
+.feedbackimage {
+    display: block;
+    max-width: 250px !important;
+}
+
+
+.km-nova input[type=checkbox] {
+    height: 22px !important;
+    width: 22px !important;
+}
+
+
+.km-nova h2 {
+    font-size: 1.1em;
+}
+
+.km-collapsible-content {
+    padding: 0;
+}
+
+    .km-collapsible-content table {
+        margin: 0 !important;
+    }
+
+.search-box {
+    display: none;
+    width: 100%;
+    padding: 5px;
+}
+
+    .search-box input[type="text"] {
+        width: 100%;
+        border: 1px solid #ddd;
+        padding: 10px 7px;
+        padding-right: 40px;
+    }
+
+    .search-box .search-button {
+        display: none;
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        height: 30px;
+        width: 30px;
+    }
+
+.km-header .km-tabstrip .km-icon {
+    display: none;
+}
+
+.km-switch-handle {
+    border-color: #0193CC !important;
+    background-color: #0193CC !important;
+}
+
+.km-nova .km-switch-off .km-switch-container {
+    border-color: #f8fafb;
+    background-color: #f8fafb;
+}
+
+.km-nova .km-switch-on .km-switch-container {
+    border-color: green;
+    background-color: green;
+}
+
+#textToSend {
+    color: black !important;
+    font-weight: normal;
+}
+
+#btnSend {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 10px 10px;
+    background-color: #0193CC;
+}
+
+.error {
+    color: red;
+}
+
+.km-loader{
+    display:none !important;
+}
+
+/* #btnSend:hover{
+    background-color:green !important;
+}  */
+.app-version {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 25px;
+    color: #ffffff;
+}
+
+
+#loader-bg {
+    /*background: black;
+    opacity: 0.3;*/
+    background:rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: none;
+}
+
+#loader {
+    width: 70%;
+    min-height: 80px;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    top: 35%;
+    left: 15%;
+    position: absolute;
+    z-index: 9999999;
+    padding: 10px;
+    display: none;
+}
+
+    #loader h2 {
+        margin-bottom: 0;
+        font-size:14px !important;
+    }
+    #loader h2 span{
+        width:100%;
+        display:block;
+        text-align:left !important;
+        padding:2px 0px;
+    }
+.loader-img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    /*margin:-60px 0 0 -60px;*/
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+    
+.breakword{
+    width:100%;
+    table-layout:fixed;
+    word-wrap:break-word;
+    display:inline-table
+}
+
+.km-nova .km-navbar, .km-nova .k-toolbar, .km-nova .km-tabstrip, .km-nova .km-drawer .km-content {
+  background-image: none !important;/*linear-gradient(rgb(1, 147, 204) 0%, rgb(1, 147, 204) 100%) !important;*/
+  background-color: #0193CC !important;
+}
+
+
+
+/*Date picker input box style*/
+.k-datepicker{
+    width:100% !important;
+}
+.k-datepicker input{
+    border:0 !important;
+
+}
+.k-datepicker .k-select, .k-datepicker .k-select:hover{
+    border:0 !important;
+    width:100% !important;
+    text-align:right;
+    z-index:999;
+}
+.k-picker-wrap .k-icon, .k-picker-wrap .k-icon:hover {
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 12px;
+}
+
+/*Datepicker style start*/
+.ui-widget-header {
+   background: none; 
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: #0193CC;
+  color:#ffffff;
+  font-weight:normal;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  background: #ffffff;
+  color: #000000;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  background: green;
+  font-weight: normal;
+  color: #ffffff;
+}
+.ui-icon {
+  width: 21px;
+  height: 26px;
+}
+
+.ui-widget-header .ui-icon {
+  background-image: url(../Images/iconmonstr-arrow-25.png) !important;
+}
+.ui-icon-circle-triangle-w {
+  -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.ui-icon-circle-triangle-e {
+  /*background-image: url(../Images/iconmonstr-arrow-25.png) !important;*/
+}
+.ui-icon-circle-triangle-e, .ui-icon-circle-triangle-w {
+   background-position: 0 !important; 
+}
+/*Datepicker style end*/
+
+/* Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes */
+
+/*icon settings*/
+.km-cameraicon:after,
+.km-cameraicon:before {
+    /*content: "\e08a";*/
+    background-image:url(../Images/photo-camera.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+.km-galleryicon:after,
+.km-galleryicon:before {
+    /*content: "\e0a1";*/
+    background-image:url(../Images/picture.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+.km-crossicon:after,
+.km-crossicon:before {
+    /*content: "\e038";*/
+    background-image:url(../Images/x-mark.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+/*.km-notesicon:after,
+.km-notesicon:before {
+    /*content: "\e086";
+    background-image:url(../Images/paper-plane.png) !important;
+}*/
+
+.km-uploadicon:after,
+.km-uploadicon:before {
+    /*content: "\e0c6";*/
+    background-image:url(../Images/upload.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+.km-searchicon:after,
+.km-searchicon:before {
+    /*content: "\e07f";*/
+    background-image:url(../Images/magnifier.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+.km-sendicon:after,
+.km-sendicon:before {
+    content: "\e323";
+    background-image:url(../Images/paper-plane.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+.km-deleteicon:after,
+.km-deleteicon:before {
+    /*content: "\e038";*/
+    background-image:url(../Images/trash-can.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+.km-nexticon:after,
+.km-nexticon:before {
+    /*content: "\e038";*/
+    background-image:url(../Images/next-arrow.png) !important;
+    background-repeat:no-repeat !important;
+}
+
+/*header footer settings*/
+
+
+.km-header .km-button span:before,
+.km-header .km-button span:after,
+.km-header .km-back:after {
+    font-size: 22px !important;
+    top: 3px;
+}
+
+.km-header .km-button {
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
+
+.km-footer .km-view-title {
+    height: 45px !important;
+}
+
+    .km-footer .km-view-title .km-button {
+        line-height: 1.8em !important;
+    }
+
+
+
+
+.km-nova input[type="radio"] {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    margin-top: -1px !important;
+    vertical-align: middle !important;
+}
+
+.radiobutton {
+    padding-left: 6px;
+}
+
+.km-nova .km-collapsible-content {
+    height: auto !important;
+}
+.boldlabel label:first-child {
+    font-weight: bold;
+    color: rgb(58, 58, 58) !important;   
+}
+
+
+.boldlabel li {
+    margin-bottom:8px;
+    
+}
+.boldlabel ul {
+    margin-bottom:-2% !important;
+    margin-top:5% !important;
+    
+}
+/* END_CUSTOM_CODE_kendoUiMobileApp */

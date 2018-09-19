@@ -1,0 +1,52 @@
+.km-state-active{
+    background:#0193CC !important;
+}
+
+#frmLogin button{
+    background:green;
+    color:#fff;
+}
+.reset-password-link{   
+    color:green !important;
+}
+.km-nova .km-navbar, .km-nova .k-toolbar, .km-nova .km-tabstrip, .km-nova .km-drawer .km-content {
+    background-image: linear-gradient(rgb(0, 149, 65) 0%, rgb(0, 149, 65) 100%) !important;
+}
+.custom-recent{
+    color:green  !important;
+}
+
+sup{
+    background-color: green;
+    color: #fff;
+}
+.menu-heading
+{
+    color:white !important;
+}
+<!--Overide.css-->
+.km-nova .km-navbar *,
+.km-nova .k-toolbar *,
+.km-nova .km-navbar .km-leftitem .km-back:before,
+.km-nova .km-tabstrip *,
+.km-nova .km-drawer .km-list > li,
+.km-nova .km-drawer .km-list > li > .km-listview-link,
+.km-nova .km-drawer .km-list > li .km-icon {
+  color: #ffffff !important;
+}
+.listitemcolor li span
+{
+ color: rgb(58,58,58) !important;
+}
+.km-nova .km-collapsible-header,
+.km-nova .km-collapsible-header h1,
+.km-nova .km-collapsible-header h2,
+.km-nova .km-collapsible-header h3,
+.km-nova .km-collapsible-header h4,
+.km-nova .km-collapsible-header h5,
+.km-nova .km-collapsible-header h6 {
+    color: green !important;
+}
+.km-nova input[type=checkbox]:checked:after {
+    color: green !important;
+}
