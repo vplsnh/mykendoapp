@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+
+body { margi:0px; padding:0px; font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; font-size:18px; color:#737373; background:#d5e0e6; font-stretch: condensed;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display:block;}
+audio, canvas, progress, video {display: inline-block; vertical-align: baseline;}
+audio:not([controls]) { display: none; height: 0}
+[hidden], template { display:none}
+a { background-color: transparent; text-decoration:none; color:#666;}
+a:active, a:hover {outline: 0;}
+ul{ padding: 0; margin: 0; list-style: none;}
+li { list-style:none;}
+img {border:none; max-width:100%;}
+p { font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; font-weight:normal; font-size:18px; margin-bottom:22px; color:#737373;
+ padding:0px; text-align:justify}
+h1 {font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; color:#444; font-size:1.3em; margin:0px; padding:0px;}
+h2 {font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; color:#444; font-size:1.3em; margin:0px; padding:0px;}
+h3 {font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; color:#444; font-size:1.3em; margin:0px; padding:0px;}
+h4 {font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; color:#444; font-size:1.3em; margin:0px; padding:10px 15px 0px 35px;
+	text-transform:uppercase; font-weight:normal;}
+h5 {font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal; color:#444; font-size:1.3em; margin:0px; padding:0px;}
+h6 {font-family: "acumin-pro-condensed",sans-serif; font-weight:300; font-style:normal;color:#444; font-size:1.3em; margin:0px; padding:0px;}
+
+/*DEFAULT OR GLOB DIV USE*/
+section.main { margin:0px; padding:0px; width:100%;}
+.outer-width { margin:0px; padding:0px; width:100%;}
+.inner-width { margin:0 auto; padding:0px; width:100%; max-width:1250px;}
+.white-blog { margin:0 0px; padding:0 1.7% 0 2%; width:100%; background:#fff; float:left}
+
+.white-blog h4 { text-align:left; margin:20px 0% 0; padding:10px 20px; color:#AB0A0F; font-weight:bold; background:#0097DC; color:#fff; border-radius:4px;}
+
+/*RESPONSIVE WORK*/
+@media only screen and (min-width:801px) and (max-width: 1103px) {
+	.navigation li { margin:0 2px !important;}
+	}
+
+@media screen and (max-width: 768px) {
+	.request-a-call-back form textarea { width:100%;}
+	.inner-width  { width:100%; float:left;}
+	.insurance-need ul li { width:100%; float:left; display:block;}
+	.insurance-need p { text-align:justify;}
+	.left-policy-section { width:100%; float:left; display:block;}
+	.right-policy-section ul li {width:100%; float:left; display:block;}
+	.right-policy-section1 ul li {width:100%; float:left; display:block;}
+	}
+
+
+/**/
+.drawer {
+	width: 100%;
+	border-top: 1px solid #E0E0E0;
+	border-radius: 3px;
+}
+.accordion-item {
+	border-bottom: 1px solid #E0E0E0;
+}
+.accordion-item-active .accordion-header {
+	background: #888;
+	transition: .25s;
+}
+.accordion-item-active .accordion-header-icon {
+	color: #fff;
+}
+.accordion-item-active .accordion-header h1 {
+	color: #fff;
+}
+.accordion-header {
+	background: #f2f2f2;
+	padding: 9px 7px;
+	cursor: pointer;
+	border-right: 1px solid #E0E0E0;
+	border-left: 1px solid #E0E0E0;
+	min-height: 20px;
+	transition: .25s;
+}
+.accordion-header h1 {
+	float: left;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+	line-height: 1.3em;
+	color: #212121;
+}
+.accordion-content {
+	border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #E0E0E0;
+	border-top: 1px solid #E0E0E0;
+	display: none;
+	padding: 12px;
+	color: #212121;
+	background: #FFF;
+	font-size: 15px;
+	line-height: 1.45em;
+
+}
+.accordion-content p {
+	margin: 0;
+	margin-bottom: 3px;
+}
+.accordion-header-icon {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	float: right;
+	color: #888;
+	font-size: 15px;
+	vertical-align: middle;
+}
+.accordion-header-icon.accordion-header-icon-active {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+	color: #fff;
+}
+.accordion
+			{
+				width: 100%;
+				margin: 5px auto;
+				float:left;
+			}
+
+/*top-nav*/
+.top-nav { margin:0px 37px; padding:0px; float:right;}
+.top-nav ul { margin:0px; padding:0px;}
+.top-nav ul li { margin:0px; padding:0 0px; float:left}
+.top-nav ul li:after { content: "/"; display: inline-block; padding:0 5px; color:#fff; font-size: 15px}
+.top-nav ul li:last-child::after {display: none;}
+.top-nav ul li a { color:#337ab7; font-size:15px;}
+.top-nav ul li a:hover { color:#2BAA5D}
+.logo-form { float:left; margin:10px 37px 0}

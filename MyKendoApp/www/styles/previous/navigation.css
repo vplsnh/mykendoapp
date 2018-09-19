@@ -1,0 +1,61 @@
+/*NAVIGATION*/
+nav {margin:17px 0px; float:right; position:relative; z-index:10}
+.nav_bar, .navwrap ul{ display:none}
+.navigation {display: block; width:100%; margin:0px; float:left; padding:0px 0 0px;}
+.navigation ul { list-style-type: none; margin: 0 20px 0 0; padding: 0; display: block; float:left; width:100%;}
+.navigation li {margin:0; padding:0; line-height:1; display: inline-block; color:#fff;}
+
+.navigation li a i:after { content:""; display:inline-block; position:absolute; border-right: 1px solid; border-bottom: 1px solid; width: 5px; height: 5px; transform: rotate(45deg); top:23px; right:-2px;}
+
+.navigation li:last-child:after {display:none}
+.navigation li a {padding:18px 17px; font-size:18px; color: #000; display: inline-block; text-transform:capitalize; outline: 0; font-weight:100; position:relative}
+.navigation li:hover a, .navigation li a.active { color:#0692C3;}
+.navigation li.more a i, .navigation li.more:hover a i{ width:10px; height:10px; display:inline-block; background:#ed1b24; border-radius:50%; position:relative; left:auto; margin:0 0 0 2px; top:1px}
+.navigation li a span{width:105%; height:2px; position:absolute; bottom:-2px; left:0px; z-index:1; display:none}
+.navigation li:hover a span{ display:block}
+.navigation li .submenu{ /*width:250px;*/ width:195px; position:absolute; display:none; background:#fff; top:41px; left:0px; padding:10px 0 1px;}
+.navigation li .submenu li{display:block}
+.navigation li .submenu li a{ color:#000; padding:10px 8px; text-transform:capitalize; display:block; text-decoration:none; border-bottom:solid 1px #ccc}
+.navigation li .submenu li a:hover {background:#f7f9f9}
+.navigation li .submenu li a:hover, .navigation li .submenu li a.active{ color:#101010}
+.navigation li .submenu li:after{ display:none}
+.navigation li:hover > .submenu{display:block}
+
+@media only screen and (min-width:1024px) and (max-width: 1104px) {
+.navigation li a  { padding: 18px 0px !important;}
+.navigation li a i:after { right:-14px;}
+}
+
+
+@media only screen and (max-width:1023px) {
+.logo-form { margin:10px 0px; width:100%; text-align:center; position: relative}
+.top-nav ul li { display:inline-block; float:none;}
+.top-nav { margin:0px; float:right}
+.inner-nav {max-width:100%; overflow:hidden; width:100%;}
+nav .desktop{display:none}
+nav {position:static}
+.nav_bar{ display:block; width:72px; height:24px; position:absolute; left:15px; top:20px; cursor:pointer; line-height:24px; z-index:5000; -moz-transition: all 0.2s linear 0s;
+    -webkit-transition: all 0.4s linear 0s; -ms-transition: all 0.4s linear 0s; transition: all 0.4s linear 0s;}
+.nav_bar span{ width:30px; height:24px; float:left;}
+.nav_bar span i {height: 2px;  background: #000; margin: 5px; display:block; width: 20px; }
+.nav_bar.open{color:#fff; left:145px; position:fixed}
+.nav_bar.open span{float:right; position:relative; top:23px}
+.nav_bar.open span i{ background:#fff;}
+.nav_bar.open span i:nth-child(1){ -moz-transform:rotate(45deg) translateY(5px) translateX(5px); -webkit-transform:rotate(45deg) translateY(5px) translateX(5px); -ms-transform:rotate(45deg) translateY(5px) translateX(5px)}
+.nav_bar.open span i:nth-child(2){ display:none}
+.nav_bar.open span i:nth-child(3){ -moz-transform:rotate(135deg); -webkit-transform:rotate(135deg); -ms-transform:rotate(135deg)}
+.navigation_responsive{ position:fixed; top:0px; left:-230px; background:#009741; width:230px; height:100%; z-index:999; padding:100px 0px 20px 10px;  -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+.navwrap{width:100%; height:100%; display:block; position:relative;  overflow-y:scroll}
+.navwrap ul{display:block}
+.navwrap li{padding:4px 0px; color:#FFFFFF; font-size:16px; line-height:25px; text-transform:capitalize; position:relative}
+.navwrap ul li ul li a { text-transform:capitalize;}
+.navwrap li span{width:100%; position:absolute; left:0px; top:0px; display:block; height:20px; cursor:pointer}
+.navwrap li span:after{content:'+'; width:20px; position:absolute; right:0px; top:0px; display:block; height:20px; font-size:16px; line-height:20px}
+.navwrap li span.showmenu:after{content:'-'; font-size:30px}
+.navwrap li a{ display:block; color:#FFFFFF; outline:none }
+.navwrap li ul{display:none; padding:0 0 0 4%; width:96%}
+}
+
+@media only screen and (max-width:599px) {
+	.nav_bar {}
+}
