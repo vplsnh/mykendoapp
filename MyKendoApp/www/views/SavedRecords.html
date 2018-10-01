@@ -1,4 +1,4 @@
-﻿<div data-role="view" data-reload="true" data-title="Saved Records" data-use-native-scrolling="true" data-show="app.models.SavedRecords.SavedRecordsView.onShow" data-model="app.models.SavedRecords.SavedRecordsView">
+<div data-role="view" data-reload="true" data-title="Uploaded Records" data-use-native-scrolling="true" data-show="app.models.SavedRecords.SavedRecordsView.onShow" data-model="app.models.SavedRecords.SavedRecordsView">
     <div data-role="header">
         <div data-role="navbar">
             <a data-role="backbutton" data-align="left" data-bind="{events:{click:backbtn}}">back</a>
@@ -9,10 +9,11 @@
     <span class="no-item" data-bind="invisible:viewModel.hasItem"><span data-bind="text: viewModel.lang.saveRec.norec"></span></span>
     <script type="text/x-kendo-template" id="policyListTemplate">
         <div class="content">
-            <span class="title">Record Id: #: data.Id # </span>
             <span class="title" data-bind="invisible:viewModel.date"><span data-bind="text: viewModel.lang.saveRec.date"></span>: #: data.DateCreated#</span>
+
+            <span class="detail">Record Id: #: data.Id # </span>
             <small class="detail"><span data-bind="text: viewModel.lang.saveRec.name"></span>: #: data.Name #  </small>
-            <small class="detail"><span data-bind="text: viewModel.lang.saveRec.addr"></span>: #: data.Address #</small>
+            <small class="detail"><span data-bind="text: viewModel.lang.saveRec.addr"></span>: #: data.AddressLine1 # , #:data.AddressLine2#</small>
             <small class="detail"><span data-bind="text: viewModel.lang.saveRec.invno"></span>: #: data.InvNo #</small>
             <small class="detail"><span data-bind="text: viewModel.lang.saveRec.mno"></span>: #: data.MobNo #</small>
             
