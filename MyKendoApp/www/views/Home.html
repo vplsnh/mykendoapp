@@ -1,17 +1,24 @@
-﻿<div id="homePage" data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Home" data-layout="main" data-model="app.models.home">
+<div id="CCEHomePage" data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Home" data-layout="main" data-show="app.models.home.onShow" data-model="app.models.home" data-after-show="app.models.home.aftershow">
     <header data-role="header">
-        <div data-role="navbar">
+        <div data-role="navbar" id="navbar">
             <a style="padding:0.6em" href="#app-drawer" data-rel="drawer" data-role="button" data-align="left" data-icon="arrow-e"></a>
             <span data-role="view-title"></span>
         </div>
     </header>
-    <div id="frmLogin">
+    <div id="frmHome">
         <ul data-role="listview">
             <li>
                 <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/SaveRecord.html')">Save New Record</button>
             </li>
+            
             <li>
-                <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/SavedRecords.html')">Saved Records</button>
+                <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/DraftRecords.html')">Draft Records<sup data-bind="text:viewModel.cnt.draft"></sup></button>
+            </li>
+            <li>
+                <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/pendingsync.html')">Pending for Sync<sup data-bind="text:viewModel.cnt.pending"></sup></button>
+            </li>
+            <li>
+                <button data-role="button" style="margin:2% 1%; width:100%;" onclick="app.mobileApp.navigate('views/SavedRecords.html')">Uploaded Records<sup data-bind="text:viewModel.cnt.submitted"></sup></button>
             </li>
          </ul>
 
