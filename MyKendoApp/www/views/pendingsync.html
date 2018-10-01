@@ -1,0 +1,24 @@
+﻿<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Pending For Sync" data-show="app.models.pendingRecords.pendingRecordsList.onShow" data-model="app.models.pendingRecords.pendingRecordsList">
+    <div data-role="header">
+        <div data-role="navbar"><a data-role="backbutton" data-align="left" data-bind="events:{click:back}"></a><a data-role="button" style="padding:0.6em" data-bind="events:{click:Upload}" data-icon="uploadicon" data-align="right"></a><span data-role="view-title"></span> </div>
+    </div>
+    <div id='container'>
+        <ul data-role="listview" id="ulPendingSurveys" class="list-itgi listitemcolor" data-template="pendingSurveysTemplate" data-bind="{ source: viewModel.dataSource}"></ul>
+        <span class="no-item" data-bind="invisible:viewModel.hasItem"><span data-bind="text: viewModel.lang.saveRec.norec"></span></span>
+        <script type="text/x-kendo-template" id="pendingSurveysTemplate">
+            <div class="content">
+
+                <span class="detail">Record Id: #: data.Id # </span>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.name"></span>: #: data.Name #  </small>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.addr"></span>: #: data.AddressLine1 # , #:data.AddressLine2#</small>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.invno"></span>: #: data.InvNo #</small>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.mno"></span>: #: data.MobNo #</small>
+
+
+            </div>
+        </script>
+    </div>
+</div>
+<style>
+
+</style>

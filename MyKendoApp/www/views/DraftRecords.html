@@ -1,0 +1,19 @@
+﻿<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Draft Records" data-show="app.models.draftRecords.draftRecordsList.onShow" data-model="app.models.draftRecords.draftRecordsList">
+    <div data-role="header">
+        <div data-role="navbar"><a data-role="backbutton" data-align="left" data-bind="events:{click:back}"></a><span data-role="view-title"></span> </div>
+    </div>
+    <div id='container'>
+        <ul data-role="listview" id="ulDraftSurveys" class="list-itgi listitemcolor" data-template="draftCCESurveysTemplate" data-bind="{ source: viewModel.dataSource, events:{click:itemClick}}"></ul>
+        <script type="text/x-kendo-template" id="draftCCESurveysTemplate">
+            <div class="content">
+                <span class="title" data-bind="invisible:viewModel.date"><span data-bind="text: viewModel.lang.saveRec.date"></span>: #: data.DateCreated#</span>
+                <span class="detail">Record Id: #: data.Id # </span>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.name"></span>: #: data.Name #  </small>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.addr"></span>: #: data.AddressLine1 # , #:data.AddressLine2#</small>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.invno"></span>: #: data.InvNo #</small>
+                <small class="detail"><span data-bind="text: viewModel.lang.saveRec.mno"></span>: #: data.MobNo #</small>
+            </div>
+        </script>
+    </div>
+</div>
+
