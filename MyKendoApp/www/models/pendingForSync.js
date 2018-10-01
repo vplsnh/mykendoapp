@@ -1,8 +1,8 @@
 'use strict';
 (function () {
-    app.models.pendingSurveys = {
+    app.models.pendingRecords = {
         init: function () {
-            app.models.pendingSurveys = (function () {
+            app.models.pendingRecords = (function () {
                 return {
                     onShow: function (e) {
                     },
@@ -12,15 +12,17 @@
 
                 };
             })();
-            app.models.pendingSurveys.pendingSurveysList = (function () {
+            app.models.pendingRecords.pendingRecordsList = (function () {
                 var viewModel = kendo.observable({
                     dataSource: [],
+                    lang: app.strings.en
                 });
                 return {
                     viewModel: viewModel,
                     onShow: function () {
+                       
                         app.db.transaction(function (t) {
-                            t.executeSql('SELECT * FROM SurveyDetails WHERE IsSaved=? AND IsSubmitted=? AND IsSynced=? AND UserId=? AND SurveyType=? ORDER BY Id DESC', ['Y', 'Y', false, app.user.id,'CCE'],
+                            t.executeSql('SELECT * FROM Record1 WHERE IsSaved=? AND IsSubmitted=? AND IsSynced=?', ['Y', 'Y', false],
                                 function (transaction, results) {
                                     try {
                                         var list = [];
@@ -40,6 +42,7 @@
                         });
                     },
                     Upload: function () {
+                      
                         if (app.isOnline()) {
                             app.sync.checkforSync();
                         } else {
@@ -51,7 +54,8 @@
                     },
                     back: function (e) {
                         e.preventDefault();
-                        app.mobileApp.navigate('views/CCE/CCEHome.html');
+                     
+                        app.mobileApp.navigate('views/Home.html');
                     }
                 };
             })();

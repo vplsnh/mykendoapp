@@ -16,18 +16,18 @@
                     hasItem: false,
                     date: false,
                     count: 0,
-                    lang: app.strings.en,
+                    lang: app.strings.en
                   
                     
                 });
                 return {
                     viewModel: viewModel,
                     onShow: function () {
-
+                       
                         app.loader.show("Please Wait...");
                         app.db.transaction(function (tx) {
                             tx.executeSql(
-                                "SELECT * FROM Record1", [],
+                                "SELECT * FROM Record1 WHERE IsSaved=? AND IsSubmitted=? AND IsSynced=?", ['Y','Y','true'],
                                 function (tx, res) {
                                     var list = [];
                                     if (res.rows.length > 0) {

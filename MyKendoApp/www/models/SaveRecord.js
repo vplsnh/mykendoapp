@@ -15,11 +15,22 @@
            
             app.models.SaveRecord.SaveRecordView = (function () {
                 var viewModel = kendo.observable({
+                    directedfrom:'home',
                     saverec: {
                         Name: "",
-                        address: "",
+                        address1: "",
+                        address2:"",
                         invno: "",
-                        mobileno:"",
+                        mobileno: "",
+                        emailid: "",
+                        pincode: "",
+                        statet1: "Select State..",
+                        cityt1: "Select City..",
+                        invdate:"",
+                        validatePincode:false,
+                        amount:""
+
+
                         
                     },
                     RecId:"",
@@ -28,6 +39,11 @@
                     invoice: "",
                     ornament: "",
                     pictype: "",
+                    invno: "",
+                    sno: "",
+                  
+
+
                     
 
                     lang: app.strings.en,
@@ -44,11 +60,14 @@
                         app.models.SaveRecord.SaveRecordPreview.viewModel.set("resizeImage.FileBase64", FileBase64);
                         app.mobileApp.navigate('views/ImagePreview.html');
                     },
-                    deletefromForm: function () {
+                    deletefromForm: function (e) {
                         customConfirmBox("Are you sure you want to delete?", function (selection) {
                             if (selection == 1) {
 
-                                viewModel.invpic.remove(viewModel.invpic[0]);
+                                var indexi= viewModel.invpic.indexOf(e.data);
+                                viewModel.invpic.remove(viewModel.invpic[indexi]);
+                                var indexo = viewModel.ornpic.indexOf(e.data);
+                                viewModel.ornpic.remove(viewModel.ornpic[indexo]);
                             }
 
                         });
@@ -187,75 +206,162 @@
                       viewModel.onResize(app.config.Photo.targetSize, ImageURI);
                      
 
-                    }
+                    },
+                    cleanform: function () {
+                        app.models.SaveRecord.SaveRecordView.viewModel.set('saverec', {
+                            Name: "",
+                            address1: "",
+                            address2: "",
+                            invno: "",
+                            mobileno: "",
+                            emailid: "",
+                            pincode: "",
+                            statet1: "Select State..",
+                            cityt1: "Select City..",
+                            invdate: "",
+                            amount: ""
 
+                        });
+                        viewModel.invpic.length = 0;
+                        viewModel.ornpic.length = 0;
+
+
+
+                      
+
+                        app.config.isSaved = false;
+                    },
+                    call(e) {
+                        app.models.SaveRecord.SaveRecordView.viewModel.filledata(e);
+                    },
+                 
+                   
+
+                    onsubmitcheck: function () {
+                        onSubmitConfirmBox("Please ensure internet connectivity; otherwise data could be corrupt or lost.", function (selection) {
+                            if (selection == 2) {
+
+                            } else if (selection == 1) {
+                                return;
+                            }
+                        });
+
+                    }
 
                 });
                 return {
                     viewModel: viewModel,
+                    
                     onShow: function(){
-                        //Set Fields Blank
-                        app.models.SaveRecord.SaveRecordView.viewModel.set('saverec', {
-                            Name: "",
-                            address: "",
-                            invno: "",
-                            mobileno: ""
-
-                        });
+                       
+                        if (app.models.draftRecords.draftRecordsList.viewModel.directedFromDraft) {
+                            app.models.SaveRecord.SaveRecordView.fillSavedData('fromdraft');
+                            app.models.SaveRecord.SaveRecordView.viewModel.set('directedfrom', 'draft');
+                        }
+                        menu('statet1');
+                    //   rtoStatemenu("vdRegistrationState");
                         
 
 
                     },
-                    
-                        back: function () {
-                        app.models.SaveRecord.SaveRecordView.viewModel.set('saverec', {
-                            Name: "",
-                            address: "",
-                            invno: "",
-                            mobileno: ""
+                    fillSavedData: function (e) {
 
+                        app.db.transaction(function (tx) {
+                            tx.executeSql(
+                                "SELECT * FROM Record1 where Id=?", [app.record.id],
+                                function (transaction, res) {
+                                    if (res.rows.length > 0) {
+                                        viewModel.set('saverec.Name', res.rows.item(0).Name);
+                                        viewModel.set('saverec.address1', res.rows.item(0).AddressLine1);
+                                        viewModel.set('saverec.address2', res.rows.item(0).AddressLine2);
+                                        viewModel.set('saverec.invno', res.rows.item(0).InvNo);
+
+                                       //viewModel = res.rows.item(0).AddressLine1;
+                                       //viewModel= res.rows.item(0).AddressLine2;
+                                       //viewModel = res.rows.item(0).InvNo;
+                                       // //  viewModel.saverec.Name = res.rows.item(0).Name;
+
+                                    }
+
+
+                                },
+                                function (transaction, err) {
+                                });
                         });
-                       
-                        app.config.isSaved = false;
-                        },
+
+
+                    },
+                    
+                    
+                    back: function () {
+                        app.models.SaveRecord.SaveRecordView.viewModel.cleanform();
+                        
+                    },
+                  
+
                        
                         addrecord: function () {
 
                             var validatable = $('#recordDetails').kendoValidator().data("kendoValidator");
                             if (validatable.validate()) {
-                            app.models.SaveRecord.SaveRecordView.viewModel.nextrecordid();
+                                app.models.SaveRecord.SaveRecordView.viewModel.nextrecordid();
+                                var ilength = viewModel.invpic.length;
+                                var olength = viewModel.ornpic.length;
+                                if (ilength == 0 || olength == 0) {
+                                    $("#Forms1").css("border-color", "red");
+                                    $("#Forms1").css("border-width", "3px");
+                                    $("#Forms2").css("border-color", "red");
+                                    $("#Forms2").css("border-width", "3px");
+                                    alert('Please upload at least one photo for required field(s).');
+                                }
+                                else {
+                                    app.models.SaveRecord.SaveRecordView.viewModel.onsubmitcheck();
 
-                            
-                                app.db.transaction(function (tx) {
-                                    var a = viewModel.saverec.Name;
-                                    var b = viewModel.saverec.address;
-                                    var c = viewModel.saverec.invno;
-                                    var d = viewModel.saverec.mobileno;
-                                    var temp = new Date;
-                                    var yyyy = temp.getFullYear();
-                                    var mm = temp.getMonth() + 1;
-                                    var dd = temp.getDate();
-                                    var e = dd + '-' + mm + '-' + yyyy;
-                                    //            var f = viewModel.invpic[0].FileBase64;
-                                   
-                                   
+                                    app.db.transaction(function (tx) {
+                                        var fidate = viewModel.saverec.invdate;
+                                        var yyyy = fidate.getFullYear();
+                                        var mm = fidate.getMonth() + 1;
+                                        var dd = fidate.getDate();
+                                        fidate = dd + '-' + mm + '-' + yyyy;
 
-                                    tx.executeSql("INSERT INTO Record1 (Id,Name ,Address ,InvNo,MobNo,DateCreated) VALUES (?,?,?,?,?,?)", [viewModel.RecId, a, b, c, d, e],
-                                    function (transaction, results) {
-                                        console.log("Record Inserted");
+                                        var temp = new Date;
+                                        var yyyy = temp.getFullYear();
+                                        var mm = temp.getMonth() + 1;
+                                        var dd = temp.getDate();
+                                        var e = dd + '-' + mm + '-' + yyyy;
+                                        //            var f = viewModel.invpic[0].FileBase64;
+                                        var z;
 
-                                        alert("Record Added");
+                                        tx.executeSql("SELECT * FROM StateMaster where StateCode=?", [viewModel.saverec.state],
+                                            function (t, res) {
+                                                if (res.rows.length > 0) {
+                                                    z = res.rows.item(0).StateName;
+                                                    tx.executeSql("INSERT INTO Record1 (Id,Name ,AddressLine1,AddressLine2,State,City,Pincode,InvoiceDate,Amount,InvNo,MobNo,DateCreated,IsSaved,IsSubmitted,IsSynced) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [viewModel.RecId, viewModel.saverec.Name, viewModel.saverec.address1, viewModel.saverec.address2, z, viewModel.saverec.city, viewModel.saverec.pincode, fidate, viewModel.saverec.amount, viewModel.saverec.invno, viewModel.saverec.mobileno, e, 'Y', 'N', app.constant.progBooleanFalseKeyword],
+                                       function (transaction, results) {
+                                           console.log("Record Inserted");
 
-                                        app.mobileApp.navigate('views/Home.html');
+                                           alert("Record Added");
+                                           app.models.SaveRecord.SaveRecordView.viewModel.addp();
+                                           viewModel.cleanform();
 
-                                    },
-                                     function (transaction, err) {
-                                         console.log("error:" + err.message);
-                                     }
-                                     );
+                                           app.mobileApp.navigate('views/Home.html');
 
-                                });
-                                app.models.SaveRecord.SaveRecordView.viewModel.addp();
+                                       },
+                                        function (transaction, err) {
+                                            console.log("error:" + err.message);
+                                        }
+                                        );
+                                                }
+
+                                            },
+                                            function (t, err) {
+                                            });
+
+
+
+                                    });
+                                    
+                                }
                             }
                             else {
                                 alert("Please fill all the required fields!!");
@@ -263,6 +369,7 @@
                            
                            
                         }
+                  
                        
                 };
 
