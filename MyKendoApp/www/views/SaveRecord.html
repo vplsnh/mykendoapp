@@ -1,4 +1,4 @@
-﻿<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Add Record" data-model="app.models.SaveRecord.SaveRecordView" data-show="app.models.SaveRecord.SaveRecordView.onShow">
+<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Add Record" data-model="app.models.SaveRecord.SaveRecordView" data-show="app.models.SaveRecord.SaveRecordView.onShow">
     <div data-role="header">
         <div id="navbar" data-role="navbar">
             <a data-role="backbutton" data-align="left" data-bind="{events:{click: back}}">
@@ -15,23 +15,57 @@
                     <!--<tr style="display: none">-->
                     <tr>
                         <td colspan="2">
-                            <label style="float:left"><span data-bind="text:viewModel.lang.saveRec.name"></span></label>
-                            <input type="text" id="Name" name="Name" data-bind="value: viewModel.saverec.Name, attr:{placeholder: viewModel.lang.saveRec.name}" />
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.name"></span></label>
+                            <input type="text" id="Name" name="Name" data-bind="value: viewModel.saverec.Name, attr:{placeholder: viewModel.lang.saveRec.name}" required/>
                         </td>
                     </tr>
                     <!--<tr style="display: none">-->
                     <tr>
                         <td colspan="2">
-                            <label style="float:left"><span data-bind="text:viewModel.lang.saveRec.addr"></span></label>
-                            <input type="text" id="address" name="address" data-bind="value:viewModel.saverec.address,attr:{placeholder:viewModel.lang.saveRec.addr}"/>
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.emailid"></span></label>
+                            <input type="email" id="emailid" name="Email Id" data-bind="value: viewModel.saverec.emailid, attr:{placeholder: viewModel.lang.saveRec.emailid}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.addr1"></span></label>
+                            <input type="text" id="address1" name="Address Line 1" data-bind="value:viewModel.saverec.address1,attr:{placeholder:viewModel.lang.saveRec.addr1}" required/>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.addr2"></span></label>
+                            <input type="text" id="address2" name="Address Line 2" data-bind="value:viewModel.saverec.address2,attr:{placeholder:viewModel.lang.saveRec.addr2}" required />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.state"></span>:  </label>
+                            <select name="State " class="states dropdown" id="statet1" onchange="makeSubmenu(this.value, 'cityt1', 0);" data-bind="value: viewModel.saverec.statet1" required></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.city"></span>: </label>
+                            <select class="dropdown cities" name="City " id="cityt1" data-bind="value: viewModel.saverec.cityt1" required>
+                                <option selected="selected" disabled="disabled" value="Select City...">Select City...</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.pincode"></span></label>
+                            
+                            <input type='text' name='Pincode ' id="pincode" onKeyPress="if (this.value.length == 6) return false;" data-bind="value: viewModel.saverec.pincode, attr:{placeholder: viewModel.lang.saveRec.pincode}" required />
                         </td>
                     </tr>
                     <!--<tr style="display: none">-->
                     <tr>
                         <td colspan="2">
                             <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.mno"></span>: </label>
-                            <input type="number" onKeyPress="if (this.value.length == 10) return false;"id="MobileNo" name="Mobile No." data-bind="value:viewModel.saverec.mobileno,attr:{placeholder:viewModel.lang.saveRec.mno}"required />
+                            <input type="number" onKeyPress="if (this.value.length == 10) return false;"id="mobileno" name="Mobile No." data-bind="value:viewModel.saverec.mobileno,attr:{placeholder:viewModel.lang.saveRec.mno}"required />
 
                         </td>
                         
@@ -39,10 +73,25 @@
                     <tr>
                         <td colspan="2">
                              <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.invno"></span></label>
-                             <input type="text" id="invNo" name="Invoice Number" data-bind="value:viewModel.saverec.invno,attr:{placeholder:viewModel.lang.saveRec.invno}" required/>
+                             <input type="text" id="invno" name="Invoice Number" data-bind="value:viewModel.saverec.invno,attr:{placeholder:viewModel.lang.saveRec.invno}" required/>
 
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.invdate"></span></label>
+                            <input type="date" id="invdate" name="Invoice Date" data-bind="value:viewModel.saverec.invdate,attr:{placeholder:viewModel.lang.saveRec.invdate}" required />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.amount"></span></label>
+                            <input type="number" id="amount" name="Amount" data-bind="value:viewModel.saverec.amount,attr:{placeholder:viewModel.lang.saveRec.amount}" required />
+
+                        </td>
+                    </tr>
+
                    
                 </table>
             </form>
@@ -51,14 +100,14 @@
                 <form id="CCEPhotos">
                    
                          <ul data-role="listview" style="padding:2%;color:blue;">
-                        <li id="SWView" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('invoice');"; style="text-align:left;background-color:#4d7bbc;color:white;">Invoice Photo</li>
+                        <li id="Forms1" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('invoice');"; style="text-align:left;background-color:#4d7bbc;color:white;">Invoice Photo</li>
                        <li>
                              <div data-role="scroller" class="scroller-content">
                                 <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="SWClist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.invpic}"></ul>
                             </div>
 
                         </li>
-                             <li id="ThreshingOperation" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('ornament');" style="text-align:left;background-color:#4d7bbc;color:white;">Ornament Photo</li>
+                             <li id="Forms2" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('ornament');" style="text-align:left;background-color:#4d7bbc;color:white;">Ornament Photo</li>
                              <li>
                                  <div data-role="scroller" class="scroller-content">
                                      <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="threshingoperationlist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.ornpic}"></ul>
