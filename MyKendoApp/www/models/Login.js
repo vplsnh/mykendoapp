@@ -32,14 +32,15 @@
                         password: "",
                         error: "",
                         action: ''
-                    }
+                    },
+                    lang: app.strings.en
                 });
                 return {
                     viewModel: viewModel,
                     login: function () {
                         var user = viewModel.get('user');
                         //app.user.id = 1;
-                        //app.masterData.downloadStateMaster('N');
+                       
                         //var APP_ID = app.config.appId;
                         //var feedbackOptions = {
                         //    enableShake: true
@@ -64,6 +65,8 @@
                             app.user.isLoggedIn = true;
                             app.loader.hide();
                             app.mobileApp.navigate('views/Home.html');
+                            app.masterData.downloadMasterData();
+
                            
                             
                         }
