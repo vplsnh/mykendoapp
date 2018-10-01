@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -69,7 +69,9 @@
         <ul data-role="listview">
             <li><a onclick="GoToPage('views/Home.html');">Home</a></li>
             <li><a onclick="GoToPage('views/SaveRecord.html');">Save New Record</a></li>
-            <li><a onclick="GoToPage('views/SavedRecords.html');">Saved Records</a></li>
+            <li><a onclick="GoToPage('views/DraftRecords.html');">Draft Records</a></li>
+            <li><a onclick="GoToPage('views/pendingsync.html');">Pending for Sync</a></li>
+            <li><a onclick="GoToPage('views/SavedRecords.html');">Uploaded Records</a></li>
              <!--<li><span style="clear:both;color:transparent">CCE </span></li>-->
             <li><a onclick="GoToPage('views/ChangePassword.html');">Change Password</a></li>
             <li><a onclick="GoToPage('views/common/settings.html');">Settings</a></li>
@@ -104,6 +106,8 @@
     <script src="models/SaveRecord.js"></script>
     <script src="models/SavedRecords.js"></script>
     <script src="models/InvoicePhotos.js"></script>
+    <script src="models/pendingForSync.js"></script>
+    <script src="models/draftrecords.js"></script>
     
 
 
