@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 (function () {
     var app = {
@@ -15,6 +15,7 @@
             isSimulator: true,
             isDebugMode: true,
             isSaved: false,
+            cloudServiceURL: 'http://52.172.203.211/testservice/api/b2bappservice/',
           //  cloudServiceURL: 'http://localhost:51793/api/CCEAppservice/',
             //cloudServiceURL: 'http://52.172.203.211/CCEDevService/api/CCEAppservice/',
             //cloudServiceURL: 'http://surveyorapp.iffcotokio.co.in/CCEService/api/CCEAppservice/',
@@ -41,7 +42,7 @@
             sqlBooleanTrueKeyword: '\'true\'',
             sqlBooleanFalseKeyword: '\'false\'',
         },
-        survey: {
+        record: {
             id: "",
             timeStamp: "",
             sequentialNo: "",
@@ -92,15 +93,21 @@
          //   app.models.lang.init();
             app.db.init();
             app.sync.init();
+            app.models.home.init();
             app.models.Login.init();
+            app.models.draftRecords.init();
             app.models.SaveRecord.init();
+            app.models.pendingRecords.init();
             app.models.SavedRecords.init();
             app.models.InvoicePhotos.init();
-         // app.deletedb.init();
-            app.models.home.init();
-          app.models.settings.init();
+           // app.deletedb.init();
+            
+            app.models.settings.init();
+            
+           
              app.service.init();
-          //   app.masterData.init();
+             app.masterData.init();
+            
      document.addEventListener("backbutton", backkeydown, true);
             function backkeydown() { };
             try {
