@@ -1,4 +1,4 @@
-﻿<div id="photos" data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Record Photos" data-show="app.models.InvoicePhotos.InvoicePhotosView.onShow" data-model="app.models.InvoicePhotos.InvoicePhotosView">
+<div id="photos" data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Record Photos" data-show="app.models.InvoicePhotos.InvoicePhotosView.onShow" data-model="app.models.InvoicePhotos.InvoicePhotosView">
     <div data-role="header">
         <div data-role="navbar" id="navbar-title" class="cross">
             <a data-role="backbutton" data-align="left" data-bind="{events:{click:backbtn}}">back</a>
@@ -7,7 +7,9 @@
         </div>
     </div>
     
-        
+      
+            <div class="appform">
+                <form id="CCEPhotos">
            
                 <ul data-role="listview" style="padding:2%;color:blue;">
                     <li id="InvView" style="text-align:left;background-color:#4d7bbc;color:white;">Invoice Photos</li>
@@ -24,9 +26,9 @@
                     </li>
 
                 </ul>
-
-            
-        
+             </form>
+            </div>
+       
     
 
     <script type="text/x-kendo-template" id="formslistTemplate">
