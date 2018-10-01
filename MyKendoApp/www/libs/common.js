@@ -86,8 +86,135 @@ var FormatDate = function date2str(x, y) {
 
     return x + prim;
 }
+function rtoStatemenu(id) {
+    var stateNamelist = [];
+    var stateIdlist = [];
+    var stateOptions = "<option selected='selected' disabled='disabled' value=''>Select State...</option>";
+    app.db.transaction(function (tx) {
+        tx.executeSql("SELECT StateName,StateId FROM 'StateMaster' ORDER BY StateName", [],
+            function (transaction, results) {
+                if (results.rows.length > 0) {
+                    for (var i = 0; i < results.rows.length; i++) {
+                        stateNamelist.push(results.rows.item(i).StateName);
+                        stateIdlist.push(results.rows.item(i).StateId);
+                        stateOptions += "<option value='" + stateIdlist[i] + "'>" + stateNamelist[i] + "</option>";
+                    }
+                    document.getElementById(id).innerHTML = stateOptions;
+
+                    if (app.models.SaveRecord.SaveRecordView.viewModel.saverec.state != "") {
+                        if (id == "vdRegistrationState") {
+                            $("#" + id).val(app.models.SaveRecord.SaveRecordView.viewModel.saverec.state);
+                            rtoCitymenu(app.models.SaveRecord.SaveRecordView.viewModel.saverec.state, 'vdRegistrationCity', 0);
+                        } else if (id == "previousPolicyState") {
+                            $("#" + id).val(app.models.TwoWheeler.twpPreviousPolicyDetailsView.viewModel.twpPreviousPolicyDetails.State);
+                            rtoCitymenu(app.models.TwoWheeler.twpPreviousPolicyDetailsView.viewModel.twpPreviousPolicyDetails.State, 'previousPolicyCity', 0);
+                        } else {
+                            $("#" + id).val(app.models.TwoWheeler.quoteRequestView.viewModel.twpQuote.RegistrationState);
+                            rtoCitymenu(app.models.TwoWheeler.quoteRequestView.viewModel.twpQuote.RegistrationState, 'twpregistrationCity', 0);
+                        }
+                    }
+                }
+            },
+            function (transaction, error) {
+                customAlert("error" + error.message)
+            });
+    });
+}
+function rtoCitymenu(value, Cid, index) {
+    // customAlert(value);
 
 
+    var cityNamelist = [];
+    var cityIdlist = [];
+    var rtocityOptions = "<option selected='selected' disabled='disabled' value=''>Select City...</option>";
+
+    app.db.transaction(function (tx) {
+
+        tx.executeSql("SELECT CityName,CityId FROM 'RTOCityMaster' WHERE StateId='" + value + "'ORDER BY CityName", [],
+            function (transaction, results) {
+                if (results.rows.length > 0) {
+                    for (var i = 0; i < results.rows.length; i++) {
+                        cityNamelist.push(results.rows.item(i).CityName);
+                        cityIdlist.push(results.rows.item(i).CityId);
+                        rtocityOptions += "<option value='" + cityIdlist[i] + "'>" + cityNamelist[i] + "</option>";
+
+                    } //for
+                    document.getElementById(Cid).innerHTML = rtocityOptions;
+                    if (Cid == "vdRegistrationCity") {
+                        if (app.models.SaveRecord.SaveRecordView.viewModel.saverec.city != "") {
+                            $("#" + Cid).val(app.models.SaveRecord.SaveRecordView.viewModel.saverec.city);
+                        }
+                    } else if (Cid == "previousPolicyCity") {
+                        if (app.models.SaveRecord.SaveRecordView.viewModel.saverec.cityy != "") {
+                            $("#" + Cid).val(app.models.SaveRecord.SaveRecordView.viewModel.saverec.city);
+                        }
+                    } else {
+                        if (app.models.SaveRecord.SaveRecordView.viewModel.saverec.city) {
+                            $("#" + Cid).val(app.models.SaveRecord.SaveRecordView.viewModel.saverec.city);
+
+                        }
+                    }
+                } //if              
+            },
+            function (transaction, error) {
+                customAlert("error" + error.message)
+            });
+    });
+} //if
+//RTOCITYMENU
+function menu(id) {
+    var list1 = [];
+    var list2 = [];
+    var def = "DEF";
+    var stateOptions = "<option selected='selected' disabled='disabled'>Select State...</option>";
+    app.db.transaction(function (tx) {
+        tx.executeSql("SELECT StateName,StateCode FROM 'StateMaster' ORDER BY StateName", [],
+            function (transaction, results) {
+                if (results.rows.length > 0) {
+                    for (var i = 0; i < results.rows.length; i++) {
+                        list1.push(results.rows.item(i).StateName);
+                        list2.push(results.rows.item(i).StateCode);
+                        stateOptions += "<option value=" + list2[i] + ">" + list1[i] + "</option>";
+                    }
+                    document.getElementById(id).innerHTML = stateOptions;
+                 
+                }
+            },
+            function (transaction, error) {
+                customAlert("error" + error.message)
+            });
+    });
+
+    //menu
+} //menu
+function makeSubmenu(value, Cid, index) {
+    //alert(value);
+
+
+    var list = [];
+    var cityOptions = "<option selected='selected' disabled='disabled' value='Select City...'>Select City...</option>";
+
+    app.db.transaction(function (tx) {
+
+        tx.executeSql("SELECT CityDesc,CityCode FROM 'CityMaster' WHERE StateCode='" + value + "'ORDER BY CityDesc", [],
+            function (transaction, results) {
+                if (results.rows.length > 0) {
+                    for (var i = 0; i < results.rows.length; i++) {
+                        list.push(results.rows.item(i).CityDesc);
+                        cityOptions += "<option>" + list[i] + "</option>";
+
+                    } 
+                    document.getElementById(Cid).innerHTML = cityOptions;
+                   
+                } 
+            },
+            function (transaction, error) {
+                customAlert("error" + error.message)
+            });
+    });
+  
+} //if id is stateT1
+//makesubmenu
 function GetProgressPercent(total, completed) {
     /// <summary>To calculate completed percentage.</summary>
     /// <param name="total" type="Number">Total number.</param>
