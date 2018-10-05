@@ -1,0 +1,16 @@
+﻿<div data-role="view" data-reload="true" data-title="Product Selection" data-layout="main" data-model="app.models.healthCalculator">
+    <div data-role="header">
+        <div data-role="navbar"><a data-role="backbutton" data-align="left" data-bind="click:productSelectionBack"></a><span data-bind="text: viewModel.lang.healthCalculator.productSelection"></span></div>
+    </div>
+    <div id='container'>
+        <ul data-role="listview">
+
+            <li>
+                <button data-role="button" class="productBtn" onclick="app.models.healthCalculator.onProductChange('FHP');"><span data-bind="text: viewModel.lang.healthCalculator.familyHealthProtector"></span></button>
+            </li>
+            <li>
+                <button data-role="button" class="productBtn" onclick="app.models.healthCalculator.onProductChange('IHP');"><span data-bind="text: viewModel.lang.healthCalculator.individualHealthProtector"></span></button>
+            </li>
+        </ul>
+    </div>
+</div>

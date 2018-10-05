@@ -1,0 +1,199 @@
+﻿<div data-role="view" data-reload="true" data-use-native-scrolling="true" data-title="IHP" data-layout="main" data-model="app.models.healthCalculator" data-show="app.models.healthCalculator.onShow">
+    <div data-role="header">
+        <div data-role="navbar"><a data-role="backbutton" data-align="left" data-bind="events:{click:back}"></a><span data-bind="text:viewModel.title"></span></div>
+    </div>
+    <div id='container'>
+        <div class="homeSuvidha">
+            <form id="healthForm" data-bind="invisible:viewModel.isAddingMembers">
+                <h2 style="color:#0193CC;font:bold">
+                    <span data-bind="text: viewModel.lang.policyPeriod"></span>
+                </h2>
+                <label style="float:left"><span data-bind="text: viewModel.lang.inceptiondate"></span></label>
+                <input type='date' id="healthInceptionDate" placeholder='InceptionDate' name='Inception Date' onchange="app.models.healthCalculator.inceptionDateCheck(this.value); app.models.healthCalculator.clearPremiumDetails();" data-bind="value: viewModel.inceptionDate,attr:{placeholder:viewModel.lang.inceptiondate}" required />
+                <br />
+                <label style="float:left;"> <span data-bind="text: viewModel.lang.expirationdate"></span></label>
+                <input type='date' id="healthExpirationDate" name='Expiration Date' data-bind="value: viewModel.expirationDate" readonly />
+                <br />
+                <div name="sumInsuredFHPdiv" data-bind="visible:viewModel.visibleAccToProduct">
+                    <label style="float:left;"> <span data-bind="text: viewModel.lang.healthCalculator.sumInsured"></span></label>
+                    <!--<input type="number" id="healthSumInsured" name="Sum Insured" placeholder="0" data-bind="value:viewModel.sumInsured" onchange="if (app.models.healthCalculator.viewModel.groupLoyaltyDiscount=='Yes') { app.models.healthCalculator.onGroupLoyaltyDiscountSelection('Yes',app.models.healthCalculator.viewModel.sumInsured,this.value); }" />-->
+                    <select name="Sum Insured" id="healthSumInsured" class="dropdown" data-bind="value:viewModel.sumInsured" onchange="app.models.healthCalculator.onFHPSIChange(this.value)" required>
+                        <option value="0" disabled>Select</option>
+                        <option value="150000">1,50,000</option>
+                        <option value="200000">2,00,000</option>
+                        <option value="250000">2,50,000</option>
+                        <option value="300000">3,00,000</option>
+                        <option value="350000">3,50,000</option>
+                        <option value="400000">4,00,000</option>
+                        <option value="450000">4,50,000</option>
+                        <option value="500000">5,00,000</option>
+                        <option value="600000">6,00,000</option>
+                        <option value="700000">7,00,000</option>
+                        <option value="800000">8,00,000</option>
+                        <option value="900000">9,00,000</option>
+                        <option value="1000000">10,00,000</option>
+                        <option value="1100000">11,00,000</option>
+                        <option value="1200000">12,00,000</option>
+                        <option value="1300000">13,00,000</option>
+                        <option value="1400000">14,00,000</option>
+                        <option value="1500000">15,00,000</option>
+                        <option value="1600000">16,00,000</option>
+                        <option value="1700000">17,00,000</option>
+                        <option value="1800000">18,00,000</option>
+                        <option value="1900000">19,00,000</option>
+                        <option value="2000000">20,00,000</option>
+                        <option value="2100000">21,00,000</option>
+                        <option value="2200000">22,00,000</option>
+                        <option value="2300000">23,00,000</option>
+                        <option value="2400000">24,00,000</option>
+                        <option value="2500000">25,00,000</option>
+                        <option value="2600000">26,00,000</option>
+                        <option value="2700000">27,00,000</option>
+                        <option value="2800000">28,00,000</option>
+                        <option value="2900000">29,00,000</option>
+                        <option value="3000000">30,00,000</option>
+                    </select>
+                </div>
+                <div name="premiumZoneIHPdiv" data-bind="invisible:viewModel.visibleAccToProduct">
+                    <label style="float:left;"> <span data-bind="text: viewModel.lang.healthCalculator.premiumZone"></span></label>
+                    <br /><br />
+                    <span style="float:left;"><input type="radio" name="PremiumZone" id="premiumZoneGuj" onchange="app.models.healthCalculator.onpremiumZoneSelection(this.value);" value="gujarat" data-bind="checked:viewModel.premiumZone" /><span data-bind="text:viewModel.lang.healthCalculator.gujarat"></span></span>
+                    <span style="float:left;margin-left:50px"><input type="radio" name="PremiumZone" id="premiumZoneNonGuj" onchange="app.models.healthCalculator.onpremiumZoneSelection(this.value);" value="nonGujarat" data-bind="checked:viewModel.premiumZone" /><span data-bind="text:viewModel.lang.healthCalculator.nonGujarat"></span></span>
+                    <br /><br />
+                    <div data-bind="visible:viewModel.premiumZoneNoteVisibility">
+                        <span class="km-required" style="float:left;font-size:14px!important;color:red" data-bind="text:viewModel.lang.healthCalculator.premiumZoneNote"></span>
+                        <br /><br />
+                    </div>
+                </div>
+                <h2 style="color:#0193CC;font:bold">
+                    <span data-bind="text:viewModel.lang.healthCalculator.addOnRider"></span>
+                </h2>
+                <label style="float:left;"><span data-bind="text: viewModel.lang.healthCalculator.criticalIllnessCover"></span></label>
+                <br /><br />
+                <span style="float:left;"><input type="radio" name="Critical Illness Cover" id="criticalIllnessCoverYes" value="Yes" data-bind="checked:viewModel.criticalIllnessCover" onclick="app.models.healthCalculator.viewModel.set('criticalIllnessNoteVisibility', true); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.yes"></span></span>
+                <span style="float:left;margin-left:80px"><input type="radio" name="Critical Illness Cover" id="criticalIllnessCoverNo" value="No" data-bind="checked:viewModel.criticalIllnessCover" onclick="app.models.healthCalculator.viewModel.set('criticalIllnessNoteVisibility', false); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.no"></span></span>
+                <br /><br />
+                <div data-bind="visible:viewModel.criticalIllnessNoteVisibility">
+                    <span class="km-required" style="float:left;font-size:14px!important;color:red" data-bind="text:viewModel.criticalIllnessTxt"></span>
+                    <br /><br /><br />
+                </div>
+                <label id="rrLabel" style="float:left;"><span data-bind="text: viewModel.lang.healthCalculator.roomRentWaiver"></span></label>
+                <br /><br />
+                <span style="float:left;"><input type="radio" name="Room Rent Waiver" id="roomRentWaiverYes" value="Yes" data-bind="checked:viewModel.roomRentWaiver" onclick="app.models.healthCalculator.viewModel.set('roomRentWaiverNoteVisibility', true); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.yes"></span></span>
+                <span style="float:left;margin-left:80px"><input type="radio" name="Room Rent Waiver" id="roomRentWaiverNo" value="No" data-bind="checked:viewModel.roomRentWaiver" onclick="app.models.healthCalculator.viewModel.set('roomRentWaiverNoteVisibility', false); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.no"></span></span>
+                <br /><br />
+                <div data-bind="visible:viewModel.roomRentWaiverNoteVisibility">
+                    <span class="km-required" style="float:left;font-size:14px!important;color:red" data-bind="text:viewModel.roomrentWaiverTxt"></span>
+                    <br /><br /><br />
+                </div>
+                <h2 style="color:#0193CC;font:bold">
+                    <span data-bind="text:viewModel.lang.healthCalculator.memberDetails"></span>
+                </h2>
+                <ul data-role="listview" class="list-itgi listitemcolor" id="member" data-template="healthmember-details-template" data-bind="source: viewModel.allmembers"></ul>
+                <br />
+                <span class="km-icon km-add" style="float:left;position: relative;left: 46%;width:30px; height:30px;" id="addmemberbtn" onclick="app.models.healthCalculator.navigatePage(); app.models.healthCalculator.clearPremiumDetails();" ></span>
+                <!--<span class="km-icon km-delete" style="float:right;position: relative;right: 35%;width:30px; height:30px;" name="delmemberbtn"></span>-->
+                <div style="width:auto;height:40px"></div>
+                <h2 style="color:#0193CC;font:bold">
+                    <span data-bind="text:viewModel.lang.healthCalculator.discounts"></span>
+                </h2>
+                <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.otherLoyaltyDiscount"></span></label>
+                <br /><br />
+                <span style="float:left;"><input type="radio" name="Other Policy Loyalty Discount" id="otherLoyaltyDiscountYes" value="Yes" data-bind="checked:viewModel.otherLoyaltyDiscount" onchange="app.models.healthCalculator.onOtherLoyaltyDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.yes"></span></span>
+                <span style="float:left;margin-left:80px"><input type="radio" name="Other Policy Loyalty Discount" id="otherLoyaltyDiscountNo" value="No" data-bind="checked:viewModel.otherLoyaltyDiscount" onchange="app.models.healthCalculator.onOtherLoyaltyDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.no"></span></span>
+                <br /><br />
+                <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.groupLoyaltyDiscount"></span></label>
+                <br /><br />
+                <span style="float:left;"><input type="radio" name="Group Policy Loyalty Discount" id="groupLoyaltyDiscountGrtth2L" value="greaterThan2L" data-bind="checked:viewModel.groupLoyaltyDiscount" onchange="app.models.healthCalculator.onGroupLoyaltyDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.gmiSIGreaterthan2L"></span></span>
+                <span style="float:left;margin-left:20px"><input type="radio" name="Group Policy Loyalty Discount" id="groupLoyaltyDiscountLessth2L" value="lessThan2L" data-bind="checked:viewModel.groupLoyaltyDiscount" onchange="app.models.healthCalculator.onGroupLoyaltyDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.gmiSILessthan2L"></span></span>
+                <br /><br />
+                <span style="float:left;"><input type="radio" name="Group Policy Loyalty Discount" id="groupLoyaltyDiscountNone" value="none" data-bind="checked:viewModel.groupLoyaltyDiscount" onchange="app.models.healthCalculator.onGroupLoyaltyDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.none"></span></span>
+                <br /><br />
+                <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.staffDiscount"></span></label>
+                <br /><br />
+                <span style="float:left;"><input type="radio" name="Staff Discount" id="staffDiscountYes" value="Yes" data-bind="checked:viewModel.staffDiscount" onchange="app.models.healthCalculator.onStaffDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.yes"></span></span>
+                <span style="float:left;margin-left:80px"><input type="radio" name="Staff Discount" id="staffDiscountNo" value="No" data-bind="checked:viewModel.staffDiscount" onchange="app.models.healthCalculator.onStaffDiscountSelection(this.value); app.models.healthCalculator.clearPremiumDetails();" /><span data-bind="text:viewModel.lang.healthCalculator.no"></span></span>
+                <br /><br />
+                <div data-bind="invisible:viewModel.visibleAccToProduct">
+                    <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.familyDiscount"></span></label>
+                    <input type="text" id="familyDiscount" placeholder="0%" name="Family Discount" data-bind="value:viewModel.familyDiscount" readonly />
+                </div>
+                <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.totalDiscount"></span></label>
+                <input type="text" id="totalDiscount" placeholder="0%" name="Total Discount" data-bind="value:viewModel.totalDiscount" readonly />
+            </form>
+            <form id="addMember" data-bind="visible:viewModel.isAddingMembers">
+                <h2 style="color:#0193CC;font:bold">
+                    <span data-bind="text: viewModel.lang.healthCalculator.addMember"></span>
+                </h2>
+                <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.name"></span></label>
+                <input type="text" id="memberName" name="Member Name" data-bind="value:viewModel.member.name,attr:{placeholder:viewModel.lang.healthCalculator.name}" required />
+                <br />
+                <label style="float:left"><span data-bind="text: viewModel.lang.healthCalculator.dateOfBirth"></span></label>
+                <input type='date' id="healthMemberDateOfBirth" placeholder='DateOfBirth' name="Member's Date Of Birth" data-bind="value: viewModel.member.dateOfBirth,attr:{placeholder:viewModel.lang.healthCalculator.dateOfBirth}" required />
+                <br />
+                <div data-bind="invisible:viewModel.visibleAccToProduct">
+                    <label style="float:left"><span data-bind="text:viewModel.lang.healthCalculator.sumInsured"></span></label>
+                    <!--<input type="number" id="healthMemberSumInsured" name="Member Sum Insured" data-bind="value:viewModel.member.sumInsured" placeholder="0" required />-->
+                    <select class="dropdown" name="Member Sum Insured" id="healthMemberSumInsured" data-bind="value:viewModel.member.sumInsured" required>
+                        <option value="0" disabled>Select</option>
+                        <option value="50000">50000</option>
+                        <option value="100000">1,00,000</option>
+                        <option value="150000">1,50,000</option>
+                        <option value="200000">2,00,000</option>
+                        <option value="250000">2,50,000</option>
+                        <option value="300000">3,00,000</option>
+                        <option value="350000">3,50,000</option>
+                        <option value="400000">4,00,000</option>
+                        <option value="450000">4,50,000</option>
+                        <option value="500000">5,00,000</option>
+                        <option value="600000">6,00,000</option>
+                        <option value="700000">7,00,000</option>
+                        <option value="800000">8,00,000</option>
+                        <option value="900000">9,00,000</option>
+                        <option value="1000000">10,00,000</option>
+                        <option value="1100000">11,00,000</option>
+                        <option value="1200000">12,00,000</option>
+                        <option value="1300000">13,00,000</option>
+                        <option value="1400000">14,00,000</option>
+                        <option value="1500000">15,00,000</option>
+                        <option value="1600000">16,00,000</option>
+                        <option value="1700000">17,00,000</option>
+                        <option value="1800000">18,00,000</option>
+                        <option value="1900000">19,00,000</option>
+                        <option value="2000000">20,00,000</option>
+                    </select>
+                </div>
+            </form>
+            <div class="healthPremiumDetails" data-bind="visible:viewModel.premiumDetailsVisibility">
+                <h2 style="color:#0193CC;font:bold"><span data-bind="text: viewModel.lang.premiumDetails"></span></h2>
+                <ul data-role="listview">
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.basePremium"></span> </label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.BasePremium"></label></span></li>
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.criticalIllnessPremium"></span></label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.CriticalIllnessRiderPremium"></label></span></li>
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.roomRentWaiverPremium"></span></label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.RoomRentRiderPremium"></label></span></li>
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.discount"></span></label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.Discounts"></label></span></li>
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.totalPremium"></span></label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.TotalAmount"></label></span></li>
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.tax"></span></label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.GSTAmount"></label></span></li>
+                    <li><span class="detail"><label style="float:left;color:black;"><span style="width:100%!important;font-size:medium" data-bind="text: viewModel.lang.healthCalculator.netPremiumPayable"></span></label><label style="float:right;color:black" data-bind="text:viewModel.displayedPremiumDetails.NetPremiumPayable"></label></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <span id="healthCalculatePremium" data-role="button" data-align="center" style="width:100% !important" data-bind="{events:{click: onNavbarClick}},invisible:viewModel.premiumDetailsVisibility"><span data-bind="text: viewModel.buttontxt"></span></span>
+            <span id="healthPremiumShare" data-role="button" style="width:50% !important;float:left;padding:2%;display:none;border-right:solid;border-color:white;" data-bind="visible:viewModel.premiumDetailsVisibility,click:shareHealthQuote" class="km-primary km-justified"><a data-role="button" data-icon="iconshare"></a><span data-bind="text: viewModel.lang.twoWheeler.share"></span></span>
+            <span id="healthPremiumHome" data-role="button" style="width:50% !important;display:none;float:left;padding:2%;" data-bind="visible:viewModel.premiumDetailsVisibility,click:navigateHome" ><span data-bind="text: viewModel.lang.home.title"></span></span>
+         </div>
+    </div>
+    <script id="healthmember-details-template" type="text/x-kendo-template">
+        <div class="healthmemberdetailsdiv">
+            <span class="km-icon km-delete" style="float:right; width:10px; height:10px;" name='delete' data-bind="click:deleteMember"></span>
+            <span class="km-icon km-edit" style="float:right; width:10px; height:10px;" name='edit' data-bind="click:editMember"></span>
+            <span class="detail"><b><span style="float:left" data-bind="text:viewModel.lang.healthCalculator.name"></span></b><span style="float:left">&nbsp;:&nbsp;#= data.name # </span></span>
+            <div style="width:auto;height:26px"></div>
+            <span class="detail"><b><span style="float:left" data-bind="text:viewModel.lang.healthCalculator.dateOfBirth" ></span></b><span style="float:left">&nbsp;:&nbsp;#= data.dateOfBirth # </span></span>
+            <div style="width:auto;height:26px"></div>
+            <span class="detail" data-bind="invisible:viewModel.visibleAccToProduct"><b><span style="float:left" data-bind="text:viewModel.lang.healthCalculator.sumInsured"></span></b><span style="float:left">&nbsp;:&nbsp;#= data.sumInsured # </span></span>
+        </div>
+    </script>
+</div>
