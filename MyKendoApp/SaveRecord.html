@@ -1,0 +1,161 @@
+﻿<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Add Record" data-model="app.models.SaveRecord.SaveRecordView" data-show="app.models.SaveRecord.SaveRecordView.onShow">
+    <div data-role="header">
+        <div id="navbar" data-role="navbar">
+            <a data-role="backbutton" data-align="left" data-bind="{events:{click: back}}">
+                <span data-bind="text: viewModel.lang.back"></span>
+            </a>
+            <!--<a data-role="button" data-align="right" data-bind="events:{ click: save }">Save</a>-->
+            <span data-bind="text: viewModel.lang.saveRec.recdetails"></span>
+        </div>
+    </div>
+    <div id='container'>
+        <div class='homeSuvidha' id="vdDiv">
+            <form id="recordDetails">
+              
+                  
+                    
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.name"></span></label>
+                            <input type="text" id="Name" name="Name" data-bind="value: viewModel.saverec.Name, attr:{placeholder: viewModel.lang.saveRec.name}" required/>
+                     
+                             
+                   
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.emailid"></span></label>
+                            <input type="email" id="emailid" name="Email Id" data-bind="value: viewModel.saverec.emailid, attr:{placeholder: viewModel.lang.saveRec.emailid}" required/>
+                    
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.addr1"></span></label>
+                            <input type="text" id="address1" name="Address Line 1" data-bind="value:viewModel.saverec.address1,attr:{placeholder:viewModel.lang.saveRec.addr1}" required/>
+
+                   
+                       
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.addr2"></span></label>
+                            <input type="text" id="address2" name="Address Line 2" data-bind="value:viewModel.saverec.address2,attr:{placeholder:viewModel.lang.saveRec.addr2}" required />
+
+                    
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.state"></span>:  </label>
+                            <select name="State " class="states dropdown" id="statet1" onchange="makeSubmenu(this.value, 'cityt1', 0);" data-bind="value: viewModel.saverec.statet1" required></select>
+                     
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.city"></span>: </label>
+                            <select class="dropdown cities" name="City " id="cityt1" onchange="app.models.SaveRecord.SaveRecordView.changeCSS(this);" data-bind="value: viewModel.saverec.cityt1" required>
+                                <option selected="selected" disabled="disabled" value="Select City...">Select City...</option>
+                            </select>
+                  
+                      
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.pincode"></span></label>
+                            
+                            <input type='text' name='Pincode ' id="pincode" onKeyPress="if (this.value.length == 6) return false;" data-bind="value: viewModel.saverec.pincode, attr:{placeholder: viewModel.lang.saveRec.pincode}" required />
+                   
+                    <!--<tr style="display: none">-->
+                    
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.mno"></span>: </label>
+                            <input type="number" onKeyPress="if (this.value.length == 10) return false;"id="mobileno" name="Mobile No." data-bind="value:viewModel.saverec.mobileno,attr:{placeholder:viewModel.lang.saveRec.mno}"required />
+                        <table id="additems">
+                         <tr>
+                             <td><INPUT type="checkbox" name="chk" /></td>
+                            <td>
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.jewellerytype"></span>: </label>
+                            <select name="Jewellery Type" id="jewellerytype" class="dropdown" data-bind="value:viewModel.saverec.jewellerytype" required>
+                                <option value="" selected disabled>Select Jewellery..</option>
+                                 <option value="necklace">Necklace</option>
+                                 <option value="bracelet">Bracelet</option>
+                                 <option value="ring">Ring</option>
+                             </select>
+                            </td>
+                            <td>
+                            <label style="float:left;" class="km-required"><span data-bind="text: viewModel.lang.saveRec.amount"></span>: </label>
+                            <input type="number" name="Amount" id="jamount" class="dropdown" data-bind="value:viewModel.saverec.jamount,attr:{placeholder:viewModel.lang.saveRec.amount}" required>
+                            </td>
+                        </tr>
+                        </table>
+                <!--<TABLE id="dataTable">
+                    <TR>
+                        <TD><INPUT type="checkbox" name="chk" /></TD>
+                        <TD><INPUT type="text" name="txt" /></TD>
+                        <TD>
+                            <SELECT name="country">
+                                <OPTION value="in">India</OPTION>
+                                <OPTION value="de">Germany</OPTION>
+                                <OPTION value="fr">France</OPTION>
+                                <OPTION value="us">United States</OPTION>
+                                <OPTION value="ch">Switzerland</OPTION>
+                            </SELECT>
+                        </TD>
+                    </TR>
+                </TABLE>-->
+
+
+                          <!--<h2 style="color:#0193CC;font:bold">
+                          <span data-bind="text:viewModel.lang.saveRec.addprod"></span>
+                          </h2>-->
+                          
+                          <br />
+                          <span class="km-icon km-add" style="float:left;position: relative;left: 46%;width:30px; height:30px;" id="addmemberbtn" onclick="app.models.SaveRecord.SaveRecordView.addRow('additems')" ></span>
+                          <span class="km-icon km-delete" style="float:left;position: relative;left: 46%;width:30px; height:30px;" id="deletememberbtn" onclick="app.models.SaveRecord.SaveRecordView.deleteRow('additems')"></span>
+                          <div style="width:auto;height:40px"></div>   
+                             <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.invno"></span></label>
+                             <input type="number" id="invno" name="Invoice Number" data-bind="value:viewModel.saverec.invno,attr:{placeholder:viewModel.lang.saveRec.invno}" required/>
+
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.invdate"></span></label>
+                            <input type="date" id="invdate" name="Invoice Date" data-bind="value:viewModel.saverec.invdate,attr:{placeholder:viewModel.lang.saveRec.invdate}" required />
+
+                     
+                            <label style="float:left;" class="km-required"><span data-bind="text:viewModel.lang.saveRec.amount"></span></label>
+                            <input type="number" id="amount" name="Amount" data-bind="value:viewModel.saverec.amount,attr:{placeholder:viewModel.lang.saveRec.amount}" required />
+
+                   
+                
+            </form>
+            <div id="photos">
+            <div class='appform'>
+                <form id="CCEPhotos">
+                   
+                         <ul data-role="listview" style="padding:2%;color:blue;">
+                        <li id="Forms1" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('invoice');"; style="text-align:left;background-color:#4d7bbc;color:white;">Invoice Photo</li>
+                       <li>
+                             <div data-role="scroller" class="scroller-content">
+                                <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="SWClist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.invpic}"></ul>
+                            </div>
+
+                        </li>
+                             <li id="Forms2" data-icon="cameraicon" onclick="app.models.SaveRecord.SaveRecordView.viewModel.capturePhoto('ornament');" style="text-align:left;background-color:#4d7bbc;color:white;">Ornament Photo</li>
+                             <li>
+                                 <div data-role="scroller" class="scroller-content">
+                                     <ul style="border:1px solid #ccc !important;max-height:100% !important;" data-role="listview" id="threshingoperationlist" data-template="formslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.ornpic}"></ul>
+                                 </div>
+                             </li>
+                        </ul>
+                    
+
+                </form>
+
+            </div>
+                </div>
+
+        </div>
+    </div>
+    <script type="text/x-kendo-template" id="formslistTemplate">
+        <div class="content">
+            <span class="km-icon km-delete" style="float:right;position: relative;" data-bind="events:{click:deletefromForm}" name="delmemberbtn"></span>
+            <img src='#:data.FileBase64#' data-bind="events:{click:viewModel.onPreviewImage}" class="imgview" />
+            <!--<small class="detail">#:data.FileName#</small>-->
+        </div>
+    </script>
+    <script id="healthmember-details-template" type="text/x-kendo-template">
+        <div class="healthmemberdetailsdiv">
+            <span class="km-icon km-delete" style="float:right; width:10px; height:10px;" name='delete' data-bind="click:deleteMember"></span>
+            <span class="km-icon km-edit" style="float:right; width:10px; height:10px;" name='edit' data-bind="click:editMember"></span>
+            <span class="detail"><b><span style="float:left" data-bind="text:viewModel.lang.healthCalculator.name"></span></b><span style="float:left">&nbsp;:&nbsp;#= data.name # </span></span>
+            <div style="width:auto;height:26px"></div>
+            <span class="detail"><b><span style="float:left" data-bind="text:viewModel.lang.healthCalculator.dateOfBirth"></span></b><span style="float:left">&nbsp;:&nbsp;#= data.dateOfBirth # </span></span>
+            <div style="width:auto;height:26px"></div>
+            <span class="detail" data-bind="invisible:viewModel.visibleAccToProduct"><b><span style="float:left" data-bind="text:viewModel.lang.healthCalculator.sumInsured"></span></b><span style="float:left">&nbsp;:&nbsp;#= data.sumInsured # </span></span>
+        </div>
+    </script>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <span id="addREC" data-role="button" data-align="center" style="width:100% !important; " onclick="app.models.SaveRecord.SaveRecordView.addrecord();"><span data-bind="text: viewModel.lang.saveRec.addf"></span></span>
+        </div>
+    </div>
+
+
+</div>
+
