@@ -1,0 +1,303 @@
+<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Additional Coverages" data-model="app.models.TwoWheelerNew.modelVariants"
+  data-show="app.models.TwoWheelerNew.modelVariants.onShow">
+  <div data-role="header">
+    <div id="navbar" data-role="navbar">
+      <a data-role="backbutton" data-align="left"><span data-bind="text: viewModel.lang.back"></span></a><span>Variant</span>
+      <a id="homeButton" data-icon="home" data-role="button" data-align="right" onclick="app.mobileApp.navigate('views/home.html');"></a>                       
+    </div>
+  </div>
+  <div id='container'>
+    <div class="middle">
+        <!-- <h1>Variant</h1> -->
+      
+      <div class="demo-section k-content wide">
+        <div id="listView4">
+        
+        </div>
+    </div>
+
+    <script type="text/x-kendo-template" id="template4">
+        <label>
+                <div class="front-end1 box" onclick="console.log('#:Variant#'); app.mobileApp.navigate('views/')">
+                  <span>#:Variant#</span>
+                </div>
+              </label>
+    </script>
+        </div>
+  </div>
+    <style>
+        #scrollview-home .photo {
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            /* height: 200px; */
+            height: 500px;
+        }
+
+        .k-widget {
+            border-style: none !important;
+            border-width: 0px !important;
+        }
+
+        .next-btgn {
+            float: right;
+            margin-right: 5%;
+            margin-top: 3%;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Dax:400,900");
+
+        html {
+            background-color: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .front-end1 {
+            float: left;
+            width: 45%;
+            height: 150px;
+            box-sizing: border-box;
+            border-top: 0;
+            position: relative;
+            margin: 3%;
+        }
+
+        .front-end2 {
+            float: left;
+            width: 96%;
+            height: 60px;
+            box-sizing: border-box;
+            border-top: 0;
+            position: relative;
+            margin: 2%;
+        }
+
+        .middle {
+            width: 100%;
+            /* margin-bottom: 10%; */
+            /* text-align: center; */
+        }
+
+            .middle h1 {
+                font-family: "Dax", sans-serif;
+                color: black;
+            }
+
+            .middle input[type="radio"] {
+                display: none;
+            }
+
+                .middle input[type="radio"]:checked + .box1 {
+                    background-color: #0193CC;
+                }
+
+                    .middle input[type="radio"]:checked + .box1 span {
+                        color: white;
+                    }
+
+                        .middle input[type="radio"]:checked + .box1 span:before {
+                            opacity: 1;
+                        }
+
+            .middle .box {
+                width: 26%;
+                height: 100px;
+                background-color: #e2ebfd;
+                transition: all 250ms;
+                will-change: transition;
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+                font-family: "Dax", sans-serif;
+                font-weight: 900;
+                overflow: hidden;
+                white-space: pre-line;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 25%;
+            }
+
+                .middle .box span {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    transition: all 300ms ease;
+                    font-size: 1.0em;
+                    user-select: none;
+                    color: #0193CC;
+                    top: 34px;
+                }
+
+                .middle .box .span-year {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    transition: all 300ms ease;
+                    font-size: 1.0em;
+                    user-select: none;
+                    color: #0193CC;
+                    top: 20px;
+                }
+
+                .middle .box span:before {
+                    font-size: 1.2em;
+                    font-family: FontAwesome;
+                    display: block;
+                    opacity: 0;
+                    transition: all 300ms ease-in-out;
+                    font-weight: normal;
+                    color: #d6dfe4;
+                }
+
+        .fab {
+            background: #03A9F4;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            text-align: center;
+            color: #FFF;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5), 3px 3px 3px rgba(0, 0, 0, 0.25);
+            position: fixed;
+            bottom: 30px;
+            left: 48px;
+            font-size: 2.6667em;
+            display: inline-block;
+            cursor: default;
+        }
+
+            .fab span {
+                vertical-align: baseline;
+            }
+
+        .middle .box1 {
+            width: 150px;
+            height: 50px;
+            background-color: #e2ebfd;
+            transition: all 250ms ease;
+            will-change: transition;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            font-family: "Dax", sans-serif;
+            font-weight: 900;
+            overflow: hidden;
+            white-space: pre-line;
+        }
+
+            .middle .box1:nth-child(odd) {
+                text-align: right;
+            }
+
+            .middle .box1 span {
+                position: absolute;
+                /* transform: translate(0, 60px); */
+                left: 0;
+                right: 0;
+                transition: all 300ms ease;
+                font-size: 1.0em;
+                user-select: none;
+                color: #0193CC;
+                top: 13px;
+            }
+
+                .middle .box1 span:before {
+                    font-size: 1.2em;
+                    font-family: FontAwesome;
+                    display: block;
+                    /* transform: translateY(-80px); */
+                    opacity: 0;
+                    transition: all 300ms ease-in-out;
+                    font-weight: normal;
+                    color: #d6dfe4;
+                }
+
+
+
+
+        .middle2 {
+            width: 100%;
+            text-align: center;
+        }
+
+            .middle2 h1 {
+                font-family: "Dax", sans-serif;
+                color: black;
+            }
+
+            .middle2 input[type="radio"] {
+                display: none;
+            }
+
+                .middle2 input[type="radio"]:checked + .box2 {
+                    background-color: #0193CC;
+                }
+
+                    .middle2 input[type="radio"]:checked + .box2 span {
+                        color: white;
+                    }
+
+                        .middle2 input[type="radio"]:checked + .box2 span:before {
+                            opacity: 1;
+                        }
+
+            .middle2 .box2 {
+                width: 96%;
+                height: 60px;
+                background-color: #e2ebfd;
+                transition: all 250ms ease;
+                will-change: transition;
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+                font-family: "Dax", sans-serif;
+                font-weight: 900;
+                overflow: hidden;
+                white-space: pre-line;
+            }
+
+                .middle2 .box2 span {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    transition: all 300ms ease;
+                    font-size: 1.0em;
+                    user-select: none;
+                    color: #0193CC;
+                    top: 20px;
+                }
+
+                    /* .middle2 .box2 .span-year {
+              position: absolute;
+              left: 0;
+              right: 0;
+              transition: all 300ms ease;
+              font-size: 1.0em;
+              user-select: none;
+              color: #0193CC;
+              top: 20px;
+            } */
+                    .middle2 .box2 span:before {
+                        font-size: 1.2em;
+                        font-family: FontAwesome;
+                        display: block;
+                        opacity: 0;
+                        transition: all 300ms ease-in-out;
+                        font-weight: normal;
+                        color: #d6dfe4;
+                    }
+
+        .km-content {
+            padding-left: 2%;
+        }
+    </style>
+
+      <!-- <div data-role="footer">
+        <div data-role="navbar">
+            <span id="twpNextButton" data-role="button" data-align="center" style="width:100% !important" onclick="app.models.TwoWheelerNew.twpadditionalCoverages.NexttoValueAutoCoverages();"><span>Next</span></span>
+        </div>
+    </div> -->
+</div>

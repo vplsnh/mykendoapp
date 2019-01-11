@@ -1,0 +1,317 @@
+<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Vehicle Details" data-model="app.models.TwoWheelerNew" data-show="app.models.TwoWheelerNew.onShow">
+    <div data-role="header">
+        <div id="navbar" data-role="navbar">
+            <a data-role="backbutton" data-align="left" data-bind="{events:{click: backtoquickquote}}">
+                <span data-bind="text: viewModel.lang.back"></span>
+            </a>
+            <!--<a data-role="button" data-align="right" data-bind="events:{ click: save }">Save</a>-->
+            <span>Insurance Type</span>
+        </div>
+    </div>
+    <div id='container'>
+        
+    
+      <div id="scrollView" data-changing="changing" class="overlay-slider" data-role="scrollview" style="top:0px;">
+            <!-- <div class="photo" data-role="page"> -->
+                    <div class="middle">
+                            <!-- <h1>Insurence Type</h1> -->
+                            <label>
+                            <input type="radio" name="radio" id="ncb"  value="ncb" onchange="app.models.TwoWheelerNew.getInsuranceType(this.value)" />
+                            <div class="front-end box">
+                              <span> New Vehicle Without NCB</span>
+                            </div>
+                          </label>
+                          <br/>
+                          <p class="break-radio">OR</p>
+                            <label>
+                            <input type="radio" name="radio" value="ocr" onchange="app.models.TwoWheelerNew.getInsuranceType(this.value)" />
+                            <div class="back-end box">
+                              <span>Other Company Renewals</span>
+                            </div>
+                          </label>
+                          </div>
+           
+          </div>
+    </div>
+    <div data-role="footer" style="background-color:white !important;">
+        <div data-role="navbar" style="background-color:white !important;">
+           
+        </div>
+    </div>
+<script>
+    window.myTouch = {
+        tap: function(e) {
+            console.log("inside capturenext");
+                    var scrollview = $("#scrollView").data("kendoMobileScrollView");
+                    scrollview.prev();
+        }
+    }
+function next(){
+    var scrollview = $("#scrollView").data("kendoMobileScrollView");
+                    scrollview.next();
+                    // app.models.preinspectiontest.testFunc();
+}
+
+function changing(e) {
+
+    e.preventDefault(); //prevent scrolling
+
+}
+// var viewModel = kendo.observable({
+//     selectedValue:"1",
+//     id:"radiogroup",
+//     items:[
+//         {caption:"item_0", value:"0"},
+//         {caption:"item_1", value:"1"},
+//         {caption:"item_2", value:"2"}
+//     ]
+// });
+// kendo.bind($("#test"), viewModel);
+
+
+
+</script>
+
+<style>
+    #scrollview-home .photo {
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        /* height: 200px; */
+        height: 500px;
+    }
+
+.next-btgn{
+    float: right;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+html {
+  background-color: #1a1a1a;
+  overflow: hidden;
+}
+
+.front-end1{
+    float: left;
+    width: 45%;
+    height: 150px;
+    box-sizing: border-box;
+    border-top: 0;
+    position: relative;
+    margin: 2%;
+}
+.front-end2{
+    float: left;
+    width: 96%;
+    height: 60px;
+    box-sizing: border-box;
+    border-top: 0;
+    position: relative;
+    margin: 2%;
+}
+.middle {
+  width: 100%;
+  text-align: center;
+  transform: translate(0%,35%) !important;
+}
+.break-radio{
+    font-weight: bold;
+    font-size: 1.4rem !important;
+    color: #0193CC !important;
+}
+.middle h1 {
+  font-family: "Dax", sans-serif;
+  color: black;
+}
+.middle input[type="radio"] {
+  display: none;
+}
+.middle input[type="radio"]:checked + .box {
+  background-color: #0193CC;
+}
+.middle input[type="radio"]:checked + .box span {
+  color: white;
+}
+.middle input[type="radio"]:checked + .box span:before {
+  opacity: 1;
+}
+.middle .box {
+  width: 45%;
+  height: 150px;
+  background-color: #e2ebfd;
+  transition: all 250ms ease;
+  will-change: transition;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  font-family: "Dax", sans-serif;
+  font-weight: 900;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.middle .box span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.0em;
+  user-select: none;
+  color: #0193CC;
+  top: 60px;
+}
+.middle .box .span-year {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.0em;
+  user-select: none;
+  color: #0193CC;
+  top: 20px;
+}
+.middle .box span:before {
+  font-size: 1.2em;
+  font-family: FontAwesome;
+  display: block;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  font-weight: normal;
+  color: #d6dfe4;
+}
+
+.fab {
+  background: #03A9F4;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  text-align: center;
+  color: #FFF;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5), 3px 3px 3px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  bottom: 30px;
+  left: 48px;
+  font-size: 2.6667em;
+  display: inline-block;
+  cursor: default;
+}
+.fab span {
+  vertical-align: baseline;
+}
+
+    .middle .box1 {
+      width: 150px;
+      height: 150px;
+      background-color: #e2ebfd;
+      transition: all 250ms ease;
+      will-change: transition;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      font-family: "Dax", sans-serif;
+      font-weight: 900;
+      overflow: hidden;
+      white-space: pre-line;
+    }
+
+    .middle .box1:nth-child(odd) {
+        text-align: right;
+    }
+    .middle .box1 span {
+      position: absolute;
+      /* transform: translate(0, 60px); */
+      left: 0;
+      right: 0;
+      transition: all 300ms ease;
+      font-size: 1.0em;
+      user-select: none;
+      color: #0193CC;
+    }
+    .middle .box1 span:before {
+      font-size: 1.2em;
+      font-family: FontAwesome;
+      display: block;
+      /* transform: translateY(-80px); */
+      opacity: 0;
+      transition: all 300ms ease-in-out;
+      font-weight: normal;
+      color: #d6dfe4;
+    }
+    
+
+    .km-scrollview {
+    overflow: initial !important;
+    }
+
+.middle2 {
+  width: 100%;
+  text-align: center;
+}
+.middle2 h1 {
+  font-family: "Dax", sans-serif;
+  color: black;
+}
+.middle2 input[type="radio"] {
+  display: none;
+}
+.middle2 input[type="radio"]:checked + .box2 {
+  background-color: #0193CC;
+}
+.middle2 input[type="radio"]:checked + .box2 span {
+  color: white;
+}
+.middle2 input[type="radio"]:checked + .box2 span:before {
+  opacity: 1;
+}
+.middle2 .box2 {
+  width: 96%;
+  height: 60px;
+  background-color: #e2ebfd;
+  transition: all 250ms ease;
+  will-change: transition;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  font-family: "Dax", sans-serif;
+  font-weight: 900;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.middle2 .box2 span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.0em;
+  user-select: none;
+  color: #0193CC;
+  top: 20px;
+}
+/* .middle2 .box2 .span-year {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.0em;
+  user-select: none;
+  color: #0193CC;
+  top: 20px;
+} */
+.middle2 .box2 span:before {
+  font-size: 1.2em;
+  font-family: FontAwesome;
+  display: block;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  font-weight: normal;
+  color: #d6dfe4;
+}
+</style>
+</div>
+

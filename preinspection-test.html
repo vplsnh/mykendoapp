@@ -1,0 +1,258 @@
+<div data-role="view" data-reload="true" data-use-native-scrolling="true" data-title="Preinspection" data-model="app.models.preinspectiontest" data-show="app.models.preinspectiontest.onShow">
+    <div data-role="header">
+        <div id="navbar" data-role="navbar">
+            <a id="preinspectionbackbutton" data-role="backbutton" data-align="left" data-bind="events:{click:NavigateToBack}">Back</a>
+            <span data-bind="text: viewModel.lang.preinspectiontest.pagetitle"></span>
+            <a id="aResetPhotos" data-bind="events:{click:resetPhotos}" style="color:aliceblue" data-align="right"></a>
+            <!--<a id="aTimer" style="color:aliceblue" data-align="right"></a>-->
+            <!-- <span data-align="right"><label style="display:none" id="hours">00</label>(<label id="minutes">00</label>:<label id="seconds">00</label>)</span> -->
+            <a id="ainfo" data-role="button" data-icon="info" data-align="right" data-bind="events:{click:Terms}"></a>
+
+        </div>
+    </div>
+    <!-- <div class="form-content">
+        <small style="font-size:x-small"><span style="color:red">*</span><span data-bind="text: viewModel.lang.preinspectiontest.TimeLimit"></span>
+        </small>
+        <div data-role="collapsible" id="dvRcCopyCollapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h2>
+                <div style="float:left;font-size:medium;" ><span data-bind="text: viewModel.lang.preinspectiontest.RCCopy"></span><span style="color:red">*</span></div>
+
+                <div style="float:right;">
+                    <img id="btnRcCopyCamera" data-bind="click:CapturePhoto" src="images/camera-512.png" style="height:30px; width:30px;margin-bottom: -6px;" />
+                </div>
+            </h2>
+            <ul style="border:1px solid #ccc !important;" data-role="listview" id='RcCopyPhotoslist' data-template="RcCopyPhotoslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.RcCopyphotos}"></ul>
+        </div>
+        <div data-role="collapsible" id="dvVehicleFrontBackCollapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h2>
+                <div style="float:left;font-size:medium;"><span data-bind="text: viewModel.lang.preinspectiontest.VehicleFrontBack"></span><span style="color:red">*</span> </div>
+                <div style="float:right;">
+                    <img id="btnVehicleFrontBackCamera" data-bind="click:CapturePhoto" src="images/camera-512.png" style="height:30px; width:30px;margin-bottom: -6px;" />
+                </div>
+            </h2>
+            <ul style="border:1px solid #ccc !important;" data-role="listview" id='VehicleFrontBackPhotoslist' data-template="VehicleFrontBackPhotoslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.VehicleFrontBack}"></ul>
+        </div>
+        <div data-role="collapsible" id="dvChassisNumberCollapsible"  data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h2>
+                <div style="float:left;font-size:medium;"><span data-bind="text: viewModel.lang.preinspectiontest.ChassisNumber"></span><span style="color:red">*</span></div>
+                <div style="float:right;">
+                    <img id="btnChassisNumberCamera" data-bind="click:CapturePhoto" src="images/camera-512.png" style="height:30px; width:30px;margin-bottom: -6px;" />
+                </div>
+            </h2>
+            <ul style="border:1px solid #ccc !important;" data-role="listview" id='ChassisNumberPhotoslist' data-template="VehicleFrontBackPhotoslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.ChassisNumber}"></ul>
+        </div>
+        <div data-role="collapsible" id="dvOdometerCollapsible"  data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h2>
+                <div style="float:left;font-size:medium;"><span data-bind="text: viewModel.lang.preinspectiontest.Odometer"></span><span style="color:red">*</span></div>
+                <div style="float:right;">
+                    <img id="btnOdometerCamera" data-bind="click:CapturePhoto" src="images/camera-512.png" style="height:30px; width:30px;margin-bottom: -6px;" />
+                </div>
+            </h2>
+            <ul style="border:1px solid #ccc !important;" data-role="listview" id='OdometerPhotoslist' data-template="OdometerPhotoslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.Odometer}"></ul>
+        </div>
+        <div data-role="collapsible" id="dvCloseupDamagePartCollapsible"  data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h2>
+                <div style="float:left;font-size:medium;"><span data-bind="text: viewModel.lang.preinspectiontest.CloseupDamagepart"></span></div>
+                <div style="float:right;">
+                    <img id="btnCloseupDamagePartCamera" data-bind="click:CapturePhoto" src="images/camera-512.png" style="height:30px; width:30px;margin-bottom: -6px;"  />
+                </div>
+            </h2>
+            <ul style="border:1px solid #ccc !important;" data-role="listview" id='CloseupDamagePartPhotoslist' data-template="CloseupDamagePartPhotoslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.CloseupDamagePart}"></ul>
+        </div>
+        <div data-role="collapsible" id="dvCloseupDamagePartCollapsible1"  data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h2>
+                <div style="float:left;font-size:medium;"><span data-bind="text: viewModel.lang.preinspectiontest.CloseupDamagepart"></span></div>
+                <div style="float:right;">
+                    <img id="btnCloseupDamagePartCamera1" data-bind="click:capturePhotoUsingOverlay" src="images/camera-512.png" style="height:30px; width:30px;margin-bottom: -6px;"  />
+                </div>
+            </h2>
+            <ul style="border:1px solid #ccc !important;" data-role="listview" id='CloseupDamagePartPhotoslist' data-template="CloseupDamagePartPhotoslistTemplate" class="list-itgi listitemcolor customgrid" data-bind="{source:viewModel.CloseupDamagePart}"></ul>
+        </div>
+    </div>
+    <div class="form-content" style="bottom:5px !important;background-color:white !important;height: 80px !important;">
+        <div class="form">
+            <span data-role="button" data-align="right" style="width:25% !important;background-color:#0193CC !important;color:white" data-bind="events:{click:resetPhotos}"><span data-bind="text: viewModel.lang.preinspection.Reset"></span></span>
+            
+        </div>
+    </div>
+    <div class="form-content" style="bottom:5px !important;background-color:white !important;height: 80px !important;">
+        <div class="form">
+            <label><input type="checkbox" value="true" data-bind="checked:viewModel.IsAgree" /></label>
+            <span style="color:black!important; background-color:white !important;margin-left: 28px; margin-top: -26px;  float: right"><span data-bind="text: viewModel.lang.preinspection.AgreementTerms"></span></span>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a data-role="button" data-animated="true" class="capture-btn" data-bind="events:{click:takePicture}" id="captureBtn">Capture</a>
+    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <span data-role="button" data-align="centre" style="width:100% !important;" data-bind="events:{click:SavePreinspectionDetails}"><span data-bind="text: viewModel.lang.preinspection.Send"></span></span>
+        </div>
+    </div> -->
+    <a data-role="button" class= "back-btn" data-animated="true" data-icon="home" data-bind="events:{click:backtoPage}">Back</a>
+    <div class="form-content" style="padding:5%;">
+        <div class="form">
+            
+                <label>
+                    Class of Vehicle
+                </label>
+                    <select id="dropdown">
+                        <option value="first option">first option</option>
+                        <option value="second option">second option</option>
+                        <option value="third option">third option</option>
+                        <option value="fourth option">fourth option</option>
+                        <option value="fifth option">fifth option</option>
+                    </select>
+                
+                <br/><br/>
+                <label>
+                    Make & Model
+                </label>
+                    <select id="dropdown2">
+                        <option value="first option">first option</option>
+                        <option value="second option">second option</option>
+                        <option value="third option">third option</option>
+                        <option value="fourth option">fourth option</option>
+                        <option value="fifth option">fifth option</option>
+                    </select>
+                
+                <br/><br/>
+                <label>Registration No.
+                    <input type="text" value="Text" />
+                </label>
+                
+                <label>Engine & Chesis No.
+                    <input type="text" value="Text" />
+                </label>
+
+                <label>Name of Owner
+                    <input type="text" value="Text" />
+                </label>
+                <h3>Photograps & Video</h3>
+                    <div data-role="collapsible">
+                        <h3>Photograps</h3>
+                        <li><a data-role="button" data-animated="true" data-bind="events:{click:capturePhotoUsingOverlay}" id="captureBtn"><span class="km-icon km-camera"></span>Capture Photos</a></li>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>Video</h3>
+                        <li><a data-role="button" data-animated="true" data-bind="events:{click:recordVideo}"><span class="km-icon km-camera"></span>Shoot Video</a></li>
+                        <div id="videoArea"></div>
+                    </div>
+                    <br/>
+                    <div class="btn-div">
+                            <!-- <li><span class="km-icon km-camera capture-btn" id="captureBtn" data-bind="events:{click:takePicture}"></span>camera</li> -->
+                        <!-- <a data-role="button" data-animated="true" class="capture-btn" data-bind="events:{click:takePicture}" id="captureBtn">Capture</a> -->
+                    </div>
+                    <a data-role="button" class="km-primary" >Submit</a>
+        </div>
+
+    </div>
+    <div id="scrollView" class="overlay-slider" data-role="scrollview" style="top:0px;">
+        <div class="photo photo1" data-role="page"></div>
+        <div class="photo photo2" data-role="page"></div>
+        <div class="photo photo3" data-role="page"></div>
+        <div class="photo photo4" data-role="page"></div>
+        <div class="photo photo5" data-role="page"></div>
+        <div class="photo photo6" data-role="page"></div>
+        <div class="photo photo7" data-role="page"></div>
+        <div class="photo photo8" data-role="page"></div>
+        <div class="photo photo9" data-role="page"></div>
+        <div class="photo photo10" data-role="page"></div>
+        <div class="photo photo11" data-role="page"></div>
+      </div>
+      <div style="text-align: center;" class="capture-btn">
+        <a data-role="button" data-bind="events:{click:next}" style="top:25px;">Capture</a>
+      </div>
+      <ul data-role="actionsheet" id="actionsheet">
+        <li class="km-actionsheet-title">Options</li>
+        <li><a href="#" data-action="CaptureNext">Save and Continue</a></li>
+        <li><a href="#" data-action="retakeImage">Delete and Retake</a></li>
+    </ul>
+      
+</div>
+<style>
+    #scrollview-home .photo {
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 200px;
+    }
+
+    .photo1 {background-image: url("images/slider/front1.png"); height: 500px; background-repeat: no-repeat;}
+    .photo2 {background-image: url("images/slider/left1.png"); height: 500px; background-repeat: no-repeat;}
+    .photo3 {background-image: url("images/slider/back1.png"); height: 500px; background-repeat: no-repeat;}
+    .photo4 {background-image: url("images/slider/right1.png"); height: 500px; background-repeat: no-repeat;}
+    .photo5 {background-image: url("images/slider/bonnet.png"); height: 500px; background-repeat: no-repeat;}
+    .photo6 {background-image: url("images/slider/underchesis.png"); height: 500px; background-repeat: no-repeat;}
+    .photo7 {background-image: url("images/slider/odometer.png"); height: 500px; background-repeat: no-repeat;}
+    .photo8 {background-image: url("images/slider/windshield.png"); height: 500px; background-repeat: no-repeat;}
+    .photo9 {background-image: url("images/slider/tyres.png"); height: 500px; background-repeat: no-repeat;}
+    .photo10 {background-image: url("images/slider/chesisplate.png"); height: 500px; background-repeat: no-repeat;}
+    .photo11 {background-image: url("images/slider/rccard.png"); height: 500px; background-repeat: no-repeat;}
+
+    .back-btn{
+        background: transparent;
+        border: none;
+        display: none;
+    }
+    .overlay-slider{
+        display: none;
+    }
+    .capture-btn{
+        display: none;
+    }
+</style>
+<script>
+    function CaptureNext(){
+                    console.log("inside capturenext");
+                    var scrollview = $("#scrollView").data("kendoMobileScrollView");
+                    scrollview.next();
+                    app.models.preinspectiontest.testFunc();
+                  }
+    function retakeImage(){
+                    console.log("inside retakeimage");
+                    app.models.preinspectiontest.deleteImage();
+                }
+</script>
+<script type="text/x-kendo-template" id="RcCopyPhotoslistTemplate">
+    <a data-role="button" data-icon="deleteicon" class="delete-iconPhotos" data-bind="click: DeletePhoto" style="float:right!important;margin-bottom:-50%"></a>
+    <div class="content">
+        <img src='#: data.FileBase64 #' class="imgview" />
+        <div style="width:auto;height:30px"></div>
+        <small class="detail" style="word-break:break-all">#: data.FileName #</small>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="VehicleFrontBackPhotoslistTemplate">
+    <a data-role="button" data-icon="deleteicon" class="delete-iconPhotos" data-bind="click: DeletePhoto" style="float:right!important;margin-bottom:-50%"></a>
+    <div class="content">
+        <img src='#: data.FileBase64 #' class="imgview" />
+        <div style="width:auto;height:30px"></div>
+        <small class="detail" style="word-break:break-all">#: data.FileName #</small>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="ChassisNumberPhotoslistTemplate">
+    <a data-role="button" data-icon="deleteicon" class="delete-iconPhotos" data-bind="click: DeletePhoto" style="float:right!important;margin-bottom:-50%"></a>
+    <div class="content">
+        <img src='#: data.FileBase64 #' class="imgview" />
+        <div style="width:auto;height:30px"></div>
+        <small class="detail" style="word-break:break-all">#: data.FileName #</small>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="OdometerPhotoslistTemplate">
+    <a data-role="button" data-icon="deleteicon" class="delete-iconPhotos" data-bind="click: DeletePhoto" style="float:right!important;margin-bottom:-50%"></a>
+    <div class="content">
+        <img src='#: data.FileBase64 #' class="imgview" />
+        <div style="width:auto;height:30px"></div>
+        <small class="detail" style="word-break:break-all">#: data.FileName #</small>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="CloseupDamagePartPhotoslistTemplate">
+    <a data-role="button" data-icon="deleteicon" class="delete-iconPhotos" data-bind="click: DeletePhoto" style="float:right!important;margin-bottom:-50%"></a>
+    <div class="content">
+        <img src='#: data.FileBase64 #' class="imgview" />
+        <div style="width:auto;height:30px"></div>
+        <small class="detail" style="word-break:break-all">#: data.FileName #</small>
+    </div>
+</script>

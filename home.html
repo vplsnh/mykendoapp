@@ -1,0 +1,82 @@
+<div id="homePage" data-role="view" data-reload="true" data-title="Home" data-layout="main" data-show="cleanModelData()" data-model="app.models.home">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a href="#app-drawer" data-rel="drawer" data-role="button" data-align="left" data-icon="arrow-e"></a>
+            <span data-bind="text: viewModel.lang.home.title"></span>      
+        </div>
+    </header>
+
+    <div class="km-content wrapper">
+        <h2 class="Username" style="margin-top:0px;padding-top:2%;padding-left:2%;"></h2>
+        <div data-bind="visible:viewModel.visibility.suprabhatVisibility" class="leftColumn card image10" onclick="app.mobileApp.navigate('views/suprabhatHome.html');">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.Suprabhat"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.homeSuvidha" class="leftColumn card image1" onclick="app.mobileApp.navigate('views/Premium.html?id=home'); app.models.premium.premiumView.onPremiumColumnchange('home');">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.homeSuvidha"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.tradeSuvidha" class="card image2 rightColumn" onclick="app.mobileApp.navigate('views/Premium.html?id=trade'); app.models.premium.premiumView.onPremiumColumnchange('trade');">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.tradeSuvidha"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.ipf" class="leftColumn card image3" onclick="app.mobileApp.navigate('views/IPFPremium.html')">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.ipf"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.twoWheelerPolicy" class="card image4 rightColumn" onclick="app.mobileApp.navigate('views/TWPVehicleDetails.html')">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.twoWheeler"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.pcpCalculator" class="card image3 rightColumn" onclick="app.motor.mode = 'PCP'; app.mobileApp.navigate('views/TWPVehicleDetails.html')">
+            <div class="card-image">
+                <div class="banner"></div>
+                <!--<h2>PCP Calculator</h2>-->
+                <h2><span data-bind="text: viewModel.lang.home.pcp"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.jantaSuraksha" class="card image5 rightColumn" onclick="app.mobileApp.navigate('views/JantaSurakshaPlanDetails.html')">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.jantaSuraksha"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.janSewaBimaYojana" class="leftColumn card image5" onclick="app.mobileApp.navigate('views/JanSewaBimaYojna/JanSewaBimaYojna.html?id=home'); app.models.premium.premiumView.onPremiumColumnchange('home');">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.janSewa"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.healthInsurance" class="leftColumn card image6" onclick="app.mobileApp.navigate('views/HealthCalculator/healthCalculatorProductSelection.html');">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.healthCalculator"></span></h2>
+            </div>
+        </div>
+        <div data-bind="visible:viewModel.visibility.twoWheelerPolicy" class="card image4 rightColumn" onclick="app.mobileApp.navigate('views/manufacturerList.html')">
+            <div class="card-image">
+                <div class="banner"></div>
+                <h2><span data-bind="text: viewModel.lang.home.preinspection"></span></h2>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+    (function () {
+        setTimeout(function () {
+            var greetings = app.models.home.viewModel.lang.hello
+            $('.Username').html(greetings+' ' + app.user.name);
+        });
+    })();
+</script>

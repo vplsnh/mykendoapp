@@ -1,0 +1,226 @@
+<div data-role="view" data-use-native-scrolling="true" data-reload="true" data-title="Vehicle Details" data-model="app.models.TwoWheeler.twpInsuranceView" data-show="app.models.TwoWheeler.twpInsuranceView.onShow">
+    <div data-role="header">
+        <div id="navbar" data-role="navbar">
+            <a data-role="backbutton" data-align="left" data-bind="{events:{click: backtoquickquote}}">
+                <span data-bind="text: viewModel.lang.back"></span>
+            </a>
+            <!--<a data-role="button" data-align="right" data-bind="events:{ click: save }">Save</a>-->
+            <span data-bind="text: viewModel.lang.twoWheeler.vehicleDetailstitle"></span>
+        </div>
+    </div>
+    <div id='container'>
+        <input id="input" style="width: 100%;" />
+        <div class="middle">
+          <h1>Registration State</h1>
+          <table class="table">
+            <tr>
+              <td>
+                  <label>
+                      <input type="radio" name="radio" checked/>
+                      <div class="front-end box1">
+                        <span>Delhi</span>
+                      </div>
+                    </label>
+              </td>
+              <td>
+                  <label>
+                      <input type="radio" name="radio"/>
+                      <div class="back-end box1">
+                        <span>Haryana</span>
+                      </div>
+                  </label> 
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <input type="radio" name="radio" checked/>
+                        <div class="front-end box1">
+                          <span>Assam</span>
+                        </div>
+                      </label>
+                </td>
+                <td>
+                    <label>
+                        <input type="radio" name="radio"/>
+                        <div class="back-end box1">
+                          <span>Punjab</span>
+                        </div>
+                    </label> 
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                      <label>
+                          <input type="radio" name="radio" checked/>
+                          <div class="front-end box1">
+                            <span>Assam</span>
+                          </div>
+                        </label>
+                  </td>
+                  <td>
+                      <label>
+                          <input type="radio" name="radio"/>
+                          <div class="back-end box1">
+                            <span>Punjab</span>
+                          </div>
+                      </label> 
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <input type="radio" name="radio" checked/>
+                            <div class="front-end box1">
+                              <span>Assam</span>
+                            </div>
+                          </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="radio" name="radio1"/>
+                            <div class="back-end box">
+                              <span>Punjab</span>
+                            </div>
+                        </label> 
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label>
+                              <input type="radio" name="radio" checked/>
+                              <div class="front-end box">
+                                <span>Assam</span>
+                              </div>
+                            </label>
+                      </td>
+                      <td>
+                          <label>
+                              <input type="radio" name="radio"/>
+                              <div class="back-end box">
+                                <span>Punjab</span>
+                              </div>
+                          </label> 
+                      </td>
+                    </tr>
+          </table>
+          </div>
+        </div>
+        <div data-role="footer" style="background-color:white !important;">
+            <div data-role="navbar" style="background-color:white !important;">
+                <!-- <span id="vehicleQuickQuote" data-role="button" data-align="center" style="width:100% !important; " onclick="app.models.TwoWheeler.twpInsuranceView.getQuickQuote()"><span data-bind="text: viewModel.lang.twoWheeler.quickQuotebtn"></span></span>
+                <span id="vehiclequickquoteshare" data-role="button" style="width:50% !important;float:left;padding:2%;display:none;border-right:solid;border-color:white;" data-bind="events:{click: shareQuickQuotePremium}" class="km-primary km-justified"><a data-role="button" data-icon="iconshare"></a><span data-bind="text: viewModel.lang.twoWheeler.share"></span></span>
+                <span id="vdnextbutton" data-role="button" style="width:50% !important;display:none;float:left;padding:2%;" onclick="app.models.TwoWheeler.twpInsuranceView.NexttoAdditionalCoverages()"><span data-bind="text: viewModel.lang.next"></span></span> -->
+                <!-- <span class="km-icon km-details"></span> -->
+                <div class="fab" id="masterfab" onclick="app.mobileApp.navigate('views/twoWheelerNext.html')"><span>></span></div>
+            </div>
+        </div>
+    
+    <style>
+    .next-bgtn{
+        float: right;
+        margin-right: 5%;
+        margin-top: 3%;
+    }
+    @import url("https://fonts.googleapis.com/css?family=Dax:400,900");
+    html {
+      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+    
+    .middle {
+      width: 100%;
+      text-align: center;
+      /* Made by */
+    }
+    .middle h1 {
+      font-family: "Dax", sans-serif;
+      color: black;
+    }
+    .middle input[type="radio"] {
+      display: none;
+    }
+    .middle input[type="radio"]:checked + .box {
+      background-color: #0193CC;
+    }
+    .middle input[type="radio"]:checked + .box span {
+      color: white;
+      transform: translateY(70px);
+    }
+    .middle input[type="radio"]:checked + .box span:before {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    .middle .box1 {
+      width: 170px;
+      height: 170px;
+      background-color: #e2ebfd;
+      transition: all 250ms ease;
+      will-change: transition;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      font-family: "Dax", sans-serif;
+      font-weight: 900;
+    }
+    .middle .box1:active {
+      transform: translateY(10px);
+    }
+    .middle .box1 span {
+      position: absolute;
+      transform: translate(0, 60px);
+      left: 0;
+      right: 0;
+      transition: all 300ms ease;
+      font-size: 1.0em;
+      user-select: none;
+      color: #0193CC;
+    }
+    .middle .box1 span:before {
+      font-size: 1.2em;
+      font-family: FontAwesome;
+      display: block;
+      transform: translateY(-80px);
+      opacity: 0;
+      transition: all 300ms ease-in-out;
+      font-weight: normal;
+      color: #d6dfe4;
+    }
+    .middle .front-end span:before {
+      /* content: '\f121'; */
+    }
+    .middle .back-end span:before {
+      /* content: '\f0f4'; */
+    }
+    .middle p {
+      color: #fff;
+      font-family: "Dax", sans-serif;
+      font-weight: 400;
+    }
+    .middle p span:after {
+      content: '\f0e7';
+      font-family: FontAwesome;
+      color: yellow;
+    }
+    
+    .fab {
+      background: #03A9F4;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      text-align: center;
+      color: #FFF;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5), 3px 3px 3px rgba(0, 0, 0, 0.25);
+      position: fixed;
+      bottom: 30px;
+      right: 48px;
+      font-size: 2.6667em;
+      display: inline-block;
+      cursor: default;
+    }
+    .fab span {
+      vertical-align: baseline;
+    }
+    </style>
+</div>

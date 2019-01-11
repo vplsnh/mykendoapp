@@ -1,0 +1,40 @@
+<div id="Login" data-role="view" data-reload="true" data-use-native-scrolling="true" data-title="Login" data-layout="main-nonav" data-model="app.models.login.loginView" data-show="app.models.login.onShow" data-hide="app.models.login.onHide">
+    <div data-role="header">
+    </div>
+    <h1 class="logo"><img src="images/logo.png" onclick="app.deletedb.clean();"></h1>
+    <!--<h1 class="logo"><img src="images/logo.png"></h1>-->
+   
+    <div class="container">
+        <!--<a id="languageSwitchlink" data-bind="events: {click: changeLanguage}"><span data-bind="text: viewModel.lang.login.LangButton"></span></a>-->
+        <form id="frmLogin" >
+            <ul data-role="listview" >
+                <li><span align="center" style="color:red;" data-bind="text: viewModel.user.error"></span>
+                    <input type="text" id="userName" data-bind="value: viewModel.user.userName, attr: { placeholder: viewModel.lang.login.UsernamePlaceholder }">
+                </li>
+                <li>
+                <input type="password" id="password" data-bind="value: viewModel.user.password, attr: { placeholder: viewModel.lang.login.PasswordPlaceholder }"></li>
+            </ul>
+            <button id="loginbutton" data-role="button" data-bind="events: { click: login }"><span data-bind="text: viewModel.lang.login.loginButton"></span></button>
+            
+        </form>
+        <a id="rememberMe">
+            <input type="checkbox" id="chkRememberMe" name="RememberMe" value="RememberMe" data-bind="events: { click: rememberME }" />
+            <span data-bind="text: viewModel.lang.login.rememberMe"> </span>
+        </a>
+        <a id="forgetPasswordlink" onclick="if (app.isOnline()) { app.mobileApp.navigate('views/ForgetPassword.html'); } else { customAlert('No Internet Connection is Available!'); }"><span data-bind="text: viewModel.lang.login.forgotPassword"></span></a>
+        <a id="userRegistration" onclick="if (app.isOnline()) { app.mobileApp.navigate('views/UserRegistration.html'); } else { customAlert('No Internet Connection is Available!'); }"><span data-bind="text: viewModel.lang.userRegistration.userRegistrationTitle"></span></a>
+        <a id="languageSwitchlinkEnglish" onclick="app.models.lang.changeLanguage('English');"><span data-bind="text: viewModel.languageList[0].text"></span></a>
+        <a id="languageSwitchlinkHindi" onclick="app.models.lang.changeLanguage('Hindi');"><span data-bind="text: viewModel.languageList[1].text"></span></a>
+    </div>
+</div>
+<script>
+    (function () {
+        setTimeout(function () {
+            if (os.wp) {
+                $('.logo').attr('style', 'padding-top: 10% !important');
+            } else {
+                $('.logo').attr('style', 'padding-top: 15% !important');
+            }
+        });
+    })();
+</script>
